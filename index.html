@@ -8,23 +8,13 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap wide">
   <header class="site">
     <h1 class="site-title"><a href="index.html">Las Contraluces</a></h1>
-    <p class="site-tagline">Cine, series, libros y juegos vistos a contraluz — sin spoilers, sin rodeos.</p>
+    <p class="site-tagline">Cine, series, libros y juegos, mirados a contraluz.</p>
     <div class="site-links">
       <a href="https://open.spotify.com/show/6RJH4iSrWTdCVyzfbbL5tO">La Contralúdica ↗</a>
     </div>
-    
-    <div class="ep-widget" id="ep-widget" style="display:none">
-      <div class="lb-label">Últimos episodios de La Contralúdica</div>
-      <ul class="ep-list" id="ep-list"></ul>
-    </div>
-    <div class="lb-widget" id="lb-widget" style="display:none">
-      <div class="lb-label">Últimas vistas en Letterboxd</div>
-      <div class="lb-posters" id="lb-posters"></div>
-    </div>
-    
   </header>
   <nav class="filters">
     <a href="index.html" class="active todo">Todo</a>
@@ -33,8 +23,10 @@
     <a href="libros.html" class="">Libros</a>
     <a href="juegos.html" class="">Juegos</a>
   </nav>
-  <main>
-    <ul class="review-list">
+  
+  <div class="home-layout">
+    <main>
+      <ul class="review-list">
   
   <li class="cat-series">
     <a class="row" href="reviews/silo-temporada-3.html">
@@ -158,7 +150,19 @@
   </li>
   
 </ul>
-  </main>
+    </main>
+    <aside class="sidebar">
+      <div class="ep-widget" id="ep-widget" style="display:none">
+        <div class="lb-label">Últimos episodios de La Contralúdica</div>
+        <ul class="ep-list" id="ep-list"></ul>
+      </div>
+      <div class="lb-widget" id="lb-widget" style="display:none">
+        <div class="lb-label">Últimas vistas en Letterboxd</div>
+        <div class="lb-posters" id="lb-posters"></div>
+      </div>
+    </aside>
+  </div>
+  
   <footer class="site">
     Las Contraluces · un archivo de Remy Lebeau
   </footer>
