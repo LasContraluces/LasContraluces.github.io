@@ -152,30 +152,61 @@
 <script>
 (function () {
   var feedUrl = "https://letterboxd.com/remylebeau33/rss/";
-  var api = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
-  fetch(api)
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (!data.items) return;
-      var films = data.items.filter(function (it) {
-        return it.link.indexOf("/film/") !== -1;
+  var proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
+
+  function starsFromRating(n) {
+    if (!n) return "";
+    var full = Math.floor(n);
+    var half = (n - full) >= 0.5;
+    var s = "★".repeat(full);
+    if (half) s += "½";
+    return s;
+  }
+
+  fetch(proxy)
+    .then(function (r) { return r.text(); })
+    .then(function (xmlText) {
+      var doc = new DOMParser().parseFromString(xmlText, "text/xml");
+      var items = Array.prototype.slice.call(doc.getElementsByTagName("item"));
+      var films = items.filter(function (it) {
+        var link = it.getElementsByTagName("link")[0];
+        return link && link.textContent.indexOf("/film/") !== -1;
       }).slice(0, 4);
       if (!films.length) return;
+
       var container = document.getElementById("lb-posters");
       films.forEach(function (it) {
-        var img = (it.description.match(/src="([^"]+)"/) || [])[1];
+        var link = it.getElementsByTagName("link")[0].textContent;
+        var title = it.getElementsByTagName("title")[0].textContent;
+        var desc = it.getElementsByTagName("description")[0].textContent;
+        var imgMatch = desc.match(/src="([^"]+)"/);
+        var img = imgMatch ? imgMatch[1] : null;
         if (!img) return;
-        var a = document.createElement("a");
-        a.href = it.link;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.title = it.title;
+
+        var ratingNode = it.getElementsByTagName("letterboxd:memberRating")[0];
+        var rating = ratingNode ? parseFloat(ratingNode.textContent) : null;
+
+        var wrap = document.createElement("a");
+        wrap.href = link;
+        wrap.target = "_blank";
+        wrap.rel = "noopener";
+        wrap.title = title;
+        wrap.className = "lb-item";
+
         var im = document.createElement("img");
         im.src = img;
-        im.alt = it.title;
+        im.alt = title;
         im.loading = "lazy";
-        a.appendChild(im);
-        container.appendChild(a);
+        wrap.appendChild(im);
+
+        if (rating) {
+          var starEl = document.createElement("span");
+          starEl.className = "lb-rating";
+          starEl.textContent = starsFromRating(rating);
+          wrap.appendChild(starEl);
+        }
+
+        container.appendChild(wrap);
       });
       document.getElementById("lb-widget").style.display = "block";
     })

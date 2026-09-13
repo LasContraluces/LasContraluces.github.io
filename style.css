@@ -111,6 +111,14 @@ header.site > * { position: relative; z-index: 1; }
 
 .lb-posters a:hover { transform: translateY(-3px); }
 .lb-posters img { display: block; width: 100%; height: auto; }
+.lb-rating {
+  display: block;
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.5px;
+  color: var(--c-cine);
+  margin-top: 4px;
+}
 
 /* --- Navegación de categorías --- */
 nav.filters {
