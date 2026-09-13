@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+:root {
+  --bg: #121110;
+  --rule: #34302a;
+  --ink: #ece4d3;
+  --ink-dim: #948c78;
+
+  --c-cine: #d9a441;
+  --c-series: #6a9c93;
+  --c-libros: #b5564b;
+  --c-juegos: #8c9a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--c-cine); outline-offset: 3px; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* --- Cabecera: el contraluz como pieza visual --- */
+header.site {
+  position: relative;
+  text-align: center;
+  padding: 80px 0 36px;
+  overflow: hidden;
+}
+
+header.site::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 420px;
+  background: radial-gradient(ellipse at center,
+    rgba(217,164,65,0.35) 0%,
+    rgba(217,164,65,0.14) 32%,
+    rgba(217,164,65,0) 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+header.site > * { position: relative; z-index: 1; }
+
+.site-title {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.site-tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-dim);
+  font-size: 1.15rem;
+  margin: 10px auto 22px;
+  max-width: 40ch;
+}
+
+.site-links { font-size: 0.9rem; }
+.site-links a { color: var(--c-cine); border-bottom: 1px solid transparent; }
+.site-links a:hover { border-bottom-color: var(--c-cine); }
+
+/* --- Módulo Letterboxd --- */
+.lb-widget {
+  position: relative;
+  z-index: 1;
+  margin: 30px auto 0;
+  max-width: 420px;
+}
+
+.lb-widget .lb-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+}
+
+.lb-posters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lb-posters a {
+  display: block;
+  width: 64px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  transition: transform 0.15s ease;
+}
+
+.lb-posters a:hover { transform: translateY(-3px); }
+.lb-posters img { display: block; width: 100%; height: auto; }
+
+/* --- Navegación de categorías --- */
+nav.filters {
+  display: flex;
+  gap: 26px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  flex-wrap: wrap;
+}
+
+nav.filters a {
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+
+nav.filters a.active.todo { color: var(--ink); border-bottom-color: var(--ink); }
+nav.filters a.active.cine { color: var(--c-cine); border-bottom-color: var(--c-cine); }
+nav.filters a.active.series { color: var(--c-series); border-bottom-color: var(--c-series); }
+nav.filters a.active.libros { color: var(--c-libros); border-bottom-color: var(--c-libros); }
+nav.filters a.active.juegos { color: var(--c-juegos); border-bottom-color: var(--c-juegos); }
+
+main { padding: 4px 0 90px; }
+
+/* --- Listado de reseñas --- */
+ul.review-list { list-style: none; margin: 0; padding: 0; }
+ul.review-list li { border-bottom: 1px solid var(--rule); }
+
+ul.review-list a.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 4px 20px 16px;
+  border-left: 3px solid transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+ul.review-list li.cat-cine a.row:hover { border-left-color: var(--c-cine); background: rgba(217,164,65,0.05); }
+ul.review-list li.cat-series a.row:hover { border-left-color: var(--c-series); background: rgba(106,156,147,0.06); }
+ul.review-list li.cat-libros a.row:hover { border-left-color: var(--c-libros); background: rgba(181,86,75,0.06); }
+ul.review-list li.cat-juegos a.row:hover { border-left-color: var(--c-juegos); background: rgba(140,154,90,0.06); }
+
+.row .left { min-width: 0; }
+
+.row .title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: block;
+}
+
+.row .tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  margin-top: 3px;
+}
+
+.row .stars { white-space: nowrap; font-size: 1rem; flex-shrink: 0; letter-spacing: 1px; }
+li.cat-cine .stars { color: var(--c-cine); }
+li.cat-series .stars { color: var(--c-series); }
+li.cat-libros .stars { color: var(--c-libros); }
+li.cat-juegos .stars { color: var(--c-juegos); }
+
+.cat-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1px 7px;
+  margin-right: 10px;
+  vertical-align: middle;
+  color: var(--ink-dim);
+}
+li.cat-cine .cat-tag { border-color: var(--c-cine); color: var(--c-cine); }
+li.cat-series .cat-tag { border-color: var(--c-series); color: var(--c-series); }
+li.cat-libros .cat-tag { border-color: var(--c-libros); color: var(--c-libros); }
+li.cat-juegos .cat-tag { border-color: var(--c-juegos); color: var(--c-juegos); }
+
+/* --- Página de reseña individual --- */
+article.review { padding-top: 20px; }
+
+article.review .back {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+}
+article.review .back:hover { border-bottom-color: currentColor; }
+
+article.review h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 5.5vw, 2.8rem);
+  margin: 0 0 10px;
+  line-height: 1.12;
+}
+
+article.review .meta { font-size: 1.15rem; letter-spacing: 1px; margin-bottom: 6px; }
+article.review.cine .meta, article.review.cine .back:hover { color: var(--c-cine); }
+article.review.series .meta, article.review.series .back:hover { color: var(--c-series); }
+article.review.libros .meta, article.review.libros .back:hover { color: var(--c-libros); }
+article.review.juegos .meta, article.review.juegos .back:hover { color: var(--c-juegos); }
+
+article.review .tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--ink-dim);
+  margin: 8px 0 36px;
+  font-size: 1.05rem;
+}
+
+article.review .body { max-width: 62ch; }
+article.review .body p { margin: 0 0 1.25em; }
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  padding: 30px 0 70px;
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  header.site { padding: 56px 0 32px; }
+  header.site::before { width: 420px; height: 300px; top: -90px; }
+  ul.review-list a.row { flex-direction: column; gap: 4px; padding: 16px 4px 16px 14px; }
+  .row .stars { font-size: 0.9rem; }
+  .lb-posters a { width: 54px; }
+}

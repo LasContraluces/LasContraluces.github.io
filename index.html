@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las Contraluces — Archivo de reseñas</title>
+<meta name="description" content="Cine, series, libros y juegos de mesa a contraluz — reseñas sin spoilers de Remy Lebeau.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <h1 class="site-title"><a href="index.html">Las Contraluces</a></h1>
+    <p class="site-tagline">Cine, series, libros y juegos vistos a contraluz — sin spoilers, sin rodeos.</p>
+    <div class="site-links">
+      <a href="https://open.spotify.com/show/6RJH4iSrWTdCVyzfbbL5tO">La Contralúdica ↗</a>
+    </div>
+    
+    <div class="lb-widget" id="lb-widget" style="display:none">
+      <div class="lb-label">Últimas vistas en Letterboxd</div>
+      <div class="lb-posters" id="lb-posters"></div>
+    </div>
+    
+  </header>
+  <nav class="filters">
+    <a href="index.html" class="active todo">Todo</a>
+    <a href="cine.html" class="">Cine</a>
+    <a href="series.html" class="">Series</a>
+    <a href="libros.html" class="">Libros</a>
+    <a href="juegos.html" class="">Juegos</a>
+  </nav>
+  <main>
+    <ul class="review-list">
+  
+  <li class="cat-cine">
+    <a class="row" href="reviews/master-commander.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Cine</span>Master &amp; Commander</span>
+        
+      </span>
+      <span class="stars">★★★★½</span>
+    </a>
+  </li>
+  
+  <li class="cat-cine">
+    <a class="row" href="reviews/teniente-corrupto.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Cine</span>Teniente Corrupto</span>
+        
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-cine">
+    <a class="row" href="reviews/hoppers.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Cine</span>Hoppers</span>
+        
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-cine">
+    <a class="row" href="reviews/despierta-la-furia.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Cine</span>Despierta la furia</span>
+        <span class="tagline">El Ritchie que nadie esperaba</span>
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-cine">
+    <a class="row" href="reviews/ruta-de-escape.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Cine</span>Ruta de Escape</span>
+        <span class="tagline">Heat sin Mann. Pero con alma propia.</span>
+      </span>
+      <span class="stars">★★★½☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-cine">
+    <a class="row" href="reviews/sinners.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Cine</span>Sinners</span>
+        
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-series">
+    <a class="row" href="reviews/slow-horses-t5.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Series</span>Slow Horses T5</span>
+        <span class="tagline">Menos conspiración, más humor negro, igual de imprescindible</span>
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-series">
+    <a class="row" href="reviews/mobland.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Series</span>MobLand</span>
+        
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-series">
+    <a class="row" href="reviews/bosch.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Series</span>Bosch</span>
+        <span class="tagline">Jazz, crimen y ningún atajo</span>
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-libros">
+    <a class="row" href="reviews/el-imperio-del-vampiro.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Libros</span>El Imperio del Vampiro</span>
+        
+      </span>
+      <span class="stars">★★★★☆</span>
+    </a>
+  </li>
+  
+  <li class="cat-series">
+    <a class="row" href="reviews/silo-temporada-3.html">
+      <span class="left">
+        <span class="title"><span class="cat-tag">Series</span>Silo — Temporada 3</span>
+        
+      </span>
+      <span class="stars">★★★★½</span>
+    </a>
+  </li>
+  
+</ul>
+  </main>
+  <footer class="site">
+    Las Contraluces · un archivo de Remy Lebeau
+  </footer>
+</div>
+
+<script>
+(function () {
+  var feedUrl = "https://letterboxd.com/remylebeau33/rss/";
+  var api = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+  fetch(api)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (!data.items) return;
+      var films = data.items.filter(function (it) {
+        return it.link.indexOf("/film/") !== -1;
+      }).slice(0, 4);
+      if (!films.length) return;
+      var container = document.getElementById("lb-posters");
+      films.forEach(function (it) {
+        var img = (it.description.match(/src="([^"]+)"/) || [])[1];
+        if (!img) return;
+        var a = document.createElement("a");
+        a.href = it.link;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.title = it.title;
+        var im = document.createElement("img");
+        im.src = img;
+        im.alt = it.title;
+        im.loading = "lazy";
+        a.appendChild(im);
+        container.appendChild(a);
+      });
+      document.getElementById("lb-widget").style.display = "block";
+    })
+    .catch(function () { /* si falla, el módulo se queda oculto sin más */ });
+})();
+</script>
+
+</body>
+</html>
