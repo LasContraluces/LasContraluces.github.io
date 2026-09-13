@@ -120,6 +120,37 @@ header.site > * { position: relative; z-index: 1; }
   margin-top: 4px;
 }
 
+.ep-widget {
+  position: relative;
+  z-index: 1;
+  margin: 30px auto 0;
+  max-width: 420px;
+  text-align: left;
+}
+
+.ep-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ep-list li + li { border-top: 1px solid var(--rule); }
+
+.ep-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+}
+
+.ep-list a:hover { background: rgba(217,164,65,0.06); }
+.ep-title { color: var(--ink); }
+.ep-date { color: var(--ink-dim); white-space: nowrap; font-size: 0.8rem; }
+
 /* --- Navegación de categorías --- */
 nav.filters {
   display: flex;

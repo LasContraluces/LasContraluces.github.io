@@ -16,6 +16,10 @@
       <a href="https://open.spotify.com/show/6RJH4iSrWTdCVyzfbbL5tO">La Contralúdica ↗</a>
     </div>
     
+    <div class="ep-widget" id="ep-widget" style="display:none">
+      <div class="lb-label">Últimos episodios de La Contralúdica</div>
+      <ul class="ep-list" id="ep-list"></ul>
+    </div>
     <div class="lb-widget" id="lb-widget" style="display:none">
       <div class="lb-label">Últimas vistas en Letterboxd</div>
       <div class="lb-posters" id="lb-posters"></div>
@@ -161,6 +165,40 @@
 </div>
 
 <script>
+(function () {
+  // Últimos episodios de La Contralúdica, vía API pública de Apple Podcasts
+  var podcastApi = "https://itunes.apple.com/lookup?id=1729680838&country=US&media=podcast&entity=podcastEpisode&limit=5";
+  fetch(podcastApi).then(function (r) { return r.json(); }).then(function (data) {
+    if (!data.results) return;
+    var episodes = data.results.filter(function (r) { return r.wrapperType === "podcastEpisode"; }).slice(0, 4);
+    if (!episodes.length) return;
+
+    var list = document.getElementById("ep-list");
+    episodes.forEach(function (ep) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = ep.trackViewUrl;
+      a.target = "_blank";
+      a.rel = "noopener";
+
+      var titleEl = document.createElement("span");
+      titleEl.className = "ep-title";
+      titleEl.textContent = ep.trackName;
+
+      var dateEl = document.createElement("span");
+      dateEl.className = "ep-date";
+      var d = new Date(ep.releaseDate);
+      dateEl.textContent = d.toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+
+      a.appendChild(titleEl);
+      a.appendChild(dateEl);
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    document.getElementById("ep-widget").style.display = "block";
+  }).catch(function () { /* si falla, el módulo se queda oculto sin más */ });
+})();
+
 (function () {
   var feedUrl = "https://letterboxd.com/remylebeau33/rss/";
   var jsonApi = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
