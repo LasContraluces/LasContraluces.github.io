@@ -151,7 +151,7 @@ ul.review-list li { border-bottom: 1px solid var(--rule); }
 
 ul.review-list a.row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 20px 4px 20px 16px;
