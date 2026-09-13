@@ -225,7 +225,7 @@ ul.review-list li.cat-series a.row:hover { border-left-color: var(--c-series); b
 ul.review-list li.cat-libros a.row:hover { border-left-color: var(--c-libros); background: rgba(181,86,75,0.06); }
 ul.review-list li.cat-juegos a.row:hover { border-left-color: var(--c-juegos); background: rgba(140,154,90,0.06); }
 
-.row .left { min-width: 0; }
+.row .left { min-width: 0; flex: 1; }
 
 .row-thumb {
   width: 76px;
