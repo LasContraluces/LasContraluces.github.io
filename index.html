@@ -152,65 +152,76 @@
 <script>
 (function () {
   var feedUrl = "https://letterboxd.com/remylebeau33/rss/";
-  var proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
+  var jsonApi = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+  var rawApi = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
 
   function starsFromRating(n) {
     if (!n) return "";
     var full = Math.floor(n);
     var half = (n - full) >= 0.5;
-    var s = "★".repeat(full);
-    if (half) s += "½";
-    return s;
+    return "★".repeat(full) + (half ? "½" : "");
   }
 
-  fetch(proxy)
-    .then(function (r) { return r.text(); })
-    .then(function (xmlText) {
-      var doc = new DOMParser().parseFromString(xmlText, "text/xml");
-      var items = Array.prototype.slice.call(doc.getElementsByTagName("item"));
-      var films = items.filter(function (it) {
-        var link = it.getElementsByTagName("link")[0];
-        return link && link.textContent.indexOf("/film/") !== -1;
-      }).slice(0, 4);
-      if (!films.length) return;
+  // Las notas vienen en un campo que rss2json no soporta, así que se piden
+  // aparte del XML crudo. Si esta parte falla, los pósters se ven igual, sin nota.
+  function fetchRatings() {
+    return fetch(rawApi)
+      .then(function (r) { return r.text(); })
+      .then(function (xmlText) {
+        var doc = new DOMParser().parseFromString(xmlText, "text/xml");
+        var items = Array.prototype.slice.call(doc.getElementsByTagName("item"));
+        var map = {};
+        items.forEach(function (it) {
+          var link = it.getElementsByTagName("link")[0];
+          var rating = it.getElementsByTagName("letterboxd:memberRating")[0];
+          if (link && rating) map[link.textContent.trim()] = parseFloat(rating.textContent);
+        });
+        return map;
+      })
+      .catch(function () { return {}; });
+  }
 
-      var container = document.getElementById("lb-posters");
-      films.forEach(function (it) {
-        var link = it.getElementsByTagName("link")[0].textContent;
-        var title = it.getElementsByTagName("title")[0].textContent;
-        var desc = it.getElementsByTagName("description")[0].textContent;
-        var imgMatch = desc.match(/src="([^"]+)"/);
-        var img = imgMatch ? imgMatch[1] : null;
-        if (!img) return;
+  Promise.all([
+    fetch(jsonApi).then(function (r) { return r.json(); }),
+    fetchRatings()
+  ]).then(function (results) {
+    var data = results[0];
+    var ratings = results[1];
+    if (!data.items) return;
+    var films = data.items.filter(function (it) {
+      return it.link.indexOf("/film/") !== -1;
+    }).slice(0, 4);
+    if (!films.length) return;
 
-        var ratingNode = it.getElementsByTagName("letterboxd:memberRating")[0];
-        var rating = ratingNode ? parseFloat(ratingNode.textContent) : null;
+    var container = document.getElementById("lb-posters");
+    films.forEach(function (it) {
+      var img = (it.description.match(/src="([^"]+)"/) || [])[1];
+      if (!img) return;
 
-        var wrap = document.createElement("a");
-        wrap.href = link;
-        wrap.target = "_blank";
-        wrap.rel = "noopener";
-        wrap.title = title;
-        wrap.className = "lb-item";
+      var wrap = document.createElement("a");
+      wrap.href = it.link;
+      wrap.target = "_blank";
+      wrap.rel = "noopener";
+      wrap.title = it.title;
 
-        var im = document.createElement("img");
-        im.src = img;
-        im.alt = title;
-        im.loading = "lazy";
-        wrap.appendChild(im);
+      var im = document.createElement("img");
+      im.src = img;
+      im.alt = it.title;
+      im.loading = "lazy";
+      wrap.appendChild(im);
 
-        if (rating) {
-          var starEl = document.createElement("span");
-          starEl.className = "lb-rating";
-          starEl.textContent = starsFromRating(rating);
-          wrap.appendChild(starEl);
-        }
+      var rating = ratings[it.link.trim()];
+      if (rating) {
+        var starEl = document.createElement("span");
+        starEl.className = "lb-rating";
+        starEl.textContent = starsFromRating(rating);
+        wrap.appendChild(starEl);
+      }
 
-        container.appendChild(wrap);
-      });
-      document.getElementById("lb-widget").style.display = "block";
-    })
-    .catch(function () { /* si falla, el módulo se queda oculto sin más */ });
+      container.appendChild(wrap);
+    });
+    document.getElementById("lb-widget").style.display = "block";
+  }).catch(function () { /* si todo falla, el módulo se queda oculto sin más */ });
 })();
 </script>
 
