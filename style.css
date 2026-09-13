@@ -333,6 +333,11 @@ footer.site {
   text-align: center;
 }
 
+.visit-counter {
+  margin-top: 14px;
+  opacity: 0.8;
+}
+
 @media (max-width: 480px) {
   header.site { padding: 56px 0 32px; }
   header.site::before { width: 420px; height: 300px; top: -90px; }
