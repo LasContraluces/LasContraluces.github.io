@@ -153,40 +153,8 @@
 (function () {
   var feedUrl = "https://letterboxd.com/remylebeau33/rss/";
   var jsonApi = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
-  var rawApi = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
 
-  function starsFromRating(n) {
-    if (!n) return "";
-    var full = Math.floor(n);
-    var half = (n - full) >= 0.5;
-    return "★".repeat(full) + (half ? "½" : "");
-  }
-
-  // Las notas vienen en un campo que rss2json no soporta, así que se piden
-  // aparte del XML crudo. Si esta parte falla, los pósters se ven igual, sin nota.
-  function fetchRatings() {
-    return fetch(rawApi)
-      .then(function (r) { return r.text(); })
-      .then(function (xmlText) {
-        var doc = new DOMParser().parseFromString(xmlText, "text/xml");
-        var items = Array.prototype.slice.call(doc.getElementsByTagName("item"));
-        var map = {};
-        items.forEach(function (it) {
-          var link = it.getElementsByTagName("link")[0];
-          var rating = it.getElementsByTagName("letterboxd:memberRating")[0];
-          if (link && rating) map[link.textContent.trim()] = parseFloat(rating.textContent);
-        });
-        return map;
-      })
-      .catch(function () { return {}; });
-  }
-
-  Promise.all([
-    fetch(jsonApi).then(function (r) { return r.json(); }),
-    fetchRatings()
-  ]).then(function (results) {
-    var data = results[0];
-    var ratings = results[1];
+  fetch(jsonApi).then(function (r) { return r.json(); }).then(function (data) {
     if (!data.items) return;
     var films = data.items.filter(function (it) {
       return it.link.indexOf("/film/") !== -1;
@@ -209,14 +177,6 @@
       im.alt = it.title;
       im.loading = "lazy";
       wrap.appendChild(im);
-
-      var rating = ratings[it.link.trim()];
-      if (rating) {
-        var starEl = document.createElement("span");
-        starEl.className = "lb-rating";
-        starEl.textContent = starsFromRating(rating);
-        wrap.appendChild(starEl);
-      }
 
       container.appendChild(wrap);
     });
