@@ -77,6 +77,52 @@ header.site > * { position: relative; z-index: 1; }
 .site-links { font-size: 0.9rem; }
 .site-links a { color: var(--c-cine); border-bottom: 1px solid transparent; }
 .site-links a:hover { border-bottom-color: var(--c-cine); }
+.site-links-sep { color: var(--rule); margin: 0 6px; }
+
+.podcast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.podcast-card {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.podcast-card h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin: 0 0 4px;
+}
+
+.podcast-role {
+  color: var(--c-cine);
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.podcast-desc {
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  margin: 0 0 16px;
+}
+
+.podcast-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 6px 14px;
+}
+
+.podcast-link:hover { border-color: var(--c-cine); color: var(--c-cine); }
 
 /* --- Módulo Letterboxd --- */
 .lb-widget {
