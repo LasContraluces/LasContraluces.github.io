@@ -387,7 +387,7 @@ footer.site {
 @media (max-width: 480px) {
   header.site { padding: 56px 0 32px; }
   header.site::before { width: 420px; height: 300px; top: -90px; }
-  ul.review-list a.row { flex-direction: column; gap: 4px; padding: 16px 4px 16px 14px; }
+  ul.review-list a.row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 4px 16px 14px; }
   .row-thumb { width: 100%; height: 140px; }
   .row .stars { font-size: 0.9rem; }
   .lb-posters a { width: 54px; }
