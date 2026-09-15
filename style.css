@@ -297,10 +297,19 @@ ul.review-list li.cat-juegos a.row:hover { border-left-color: var(--c-juegos); b
 }
 
 .row .stars { white-space: nowrap; font-size: 1rem; flex-shrink: 0; letter-spacing: 1px; }
-li.cat-cine .stars { color: var(--c-cine); }
-li.cat-series .stars { color: var(--c-series); }
-li.cat-libros .stars { color: var(--c-libros); }
-li.cat-juegos .stars { color: var(--c-juegos); }
+li.cat-cine .stars { --star-color: var(--c-cine); }
+li.cat-series .stars { --star-color: var(--c-series); }
+li.cat-libros .stars { --star-color: var(--c-libros); }
+li.cat-juegos .stars { --star-color: var(--c-juegos); }
+
+.stars, article.review .meta {
+  --star-color: var(--ink-dim);
+  background: linear-gradient(90deg, var(--star-color) var(--fill, 100%), var(--ink-dim) var(--fill, 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 
 .cat-tag {
   display: inline-block;
@@ -339,10 +348,14 @@ article.review h1 {
 }
 
 article.review .meta { font-size: 1.15rem; letter-spacing: 1px; margin-bottom: 6px; }
-article.review.cine .meta, article.review.cine .back:hover { color: var(--c-cine); }
-article.review.series .meta, article.review.series .back:hover { color: var(--c-series); }
-article.review.libros .meta, article.review.libros .back:hover { color: var(--c-libros); }
-article.review.juegos .meta, article.review.juegos .back:hover { color: var(--c-juegos); }
+article.review.cine .back:hover { color: var(--c-cine); }
+article.review.series .back:hover { color: var(--c-series); }
+article.review.libros .back:hover { color: var(--c-libros); }
+article.review.juegos .back:hover { color: var(--c-juegos); }
+article.review.cine .meta { --star-color: var(--c-cine); }
+article.review.series .meta { --star-color: var(--c-series); }
+article.review.libros .meta { --star-color: var(--c-libros); }
+article.review.juegos .meta { --star-color: var(--c-juegos); }
 
 article.review .tagline {
   font-family: 'Fraunces', serif;
