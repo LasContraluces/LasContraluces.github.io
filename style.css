@@ -383,6 +383,35 @@ article.review .body img {
   margin: 1.6em 0;
 }
 
+.reactions {
+  display: flex;
+  gap: 12px;
+  margin: 4px 0 36px;
+}
+
+.react-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: var(--ink-dim);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.react-btn svg { fill: currentColor; flex-shrink: 0; }
+.react-btn:hover { border-color: var(--ink-dim); color: var(--ink); }
+
+article.review.cine .react-btn.is-active { border-color: var(--c-cine); color: var(--c-cine); background-color: rgba(217,164,65,0.08); }
+article.review.series .react-btn.is-active { border-color: var(--c-series); color: var(--c-series); background-color: rgba(106,156,147,0.08); }
+article.review.libros .react-btn.is-active { border-color: var(--c-libros); color: var(--c-libros); background-color: rgba(181,86,75,0.08); }
+article.review.juegos .react-btn.is-active { border-color: var(--c-juegos); color: var(--c-juegos); background-color: rgba(140,154,90,0.08); }
+
 footer.site {
   border-top: 1px solid var(--rule);
   padding: 30px 0 70px;
@@ -402,6 +431,7 @@ footer.site {
   ul.review-list a.row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 4px 16px 14px; }
   .row-thumb { width: 100%; height: 140px; }
   .row .stars { font-size: 0.9rem; }
+  .react-btn { padding: 7px 12px; font-size: 0.82rem; }
   .lb-posters a { width: 54px; }
   .home-layout { flex-direction: column; }
   .sidebar { width: 100%; padding-top: 24px; }

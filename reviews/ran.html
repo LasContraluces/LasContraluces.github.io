@@ -65,6 +65,17 @@
 <li>Dónde verla: Movistar Plus+ (España)</li>
 </ul>
   </div>
+
+  <div class="reactions">
+    <button type="button" class="react-btn" data-type="like" aria-label="Me gusta">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M2 20h3V9H2v11zm19-11h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 2 7.59 8.59C7.22 8.95 7 9.45 7 10v9c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2z"/></svg>
+      <span>Me gusta</span>
+    </button>
+    <button type="button" class="react-btn" data-type="dislike" aria-label="No me gusta">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M22 4h-3v11h3V4zM3 15h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 22l6.58-6.59c.37-.36.59-.86.59-1.41V5c0-1.1-.9-2-2-2H6c-.83 0-1.54.5-1.84 1.22L1.14 10.27C1.05 10.5 1 10.74 1 11v2c0 1.1.9 2 2 2z"/></svg>
+      <span>No me gusta</span>
+    </button>
+  </div>
 </article>
   </main>
   
@@ -76,5 +87,32 @@
   </footer>
 </div>
 
+<script>
+(function(){
+  var key = 'contraluces-reaction:' + location.pathname;
+  var stored = null;
+  try { stored = localStorage.getItem(key); } catch(e) {}
+  var wrap = document.querySelector('.reactions');
+  if (!wrap) return;
+  var buttons = wrap.querySelectorAll('.react-btn');
+  function paint(){
+    buttons.forEach(function(b){
+      b.classList.toggle('is-active', b.dataset.type === stored);
+    });
+  }
+  paint();
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.dataset.type;
+      stored = (stored === type) ? null : type;
+      try {
+        if (stored) localStorage.setItem(key, stored);
+        else localStorage.removeItem(key);
+      } catch(e) {}
+      paint();
+    });
+  });
+})();
+</script>
 </body>
 </html>
