@@ -406,6 +406,8 @@ article.review .body img {
 
 .react-btn svg { fill: currentColor; flex-shrink: 0; }
 .react-btn:hover { border-color: var(--ink-dim); color: var(--ink); }
+.react-count { font-size: 0.82rem; color: var(--ink-dim); min-width: 1em; }
+.react-btn.is-active .react-count { color: inherit; }
 
 article.review.cine .react-btn.is-active { border-color: var(--c-cine); color: var(--c-cine); background-color: rgba(217,164,65,0.08); }
 article.review.series .react-btn.is-active { border-color: var(--c-series); color: var(--c-series); background-color: rgba(106,156,147,0.08); }

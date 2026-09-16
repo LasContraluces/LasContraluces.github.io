@@ -71,10 +71,12 @@
     <button type="button" class="react-btn" data-type="like" aria-label="Me gusta">
       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M2 20h3V9H2v11zm19-11h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 2 7.59 8.59C7.22 8.95 7 9.45 7 10v9c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2z"/></svg>
       <span>Me gusta</span>
+      <span class="react-count" data-count="like">0</span>
     </button>
     <button type="button" class="react-btn" data-type="dislike" aria-label="No me gusta">
       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M22 4h-3v11h3V4zM3 15h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 22l6.58-6.59c.37-.36.59-.86.59-1.41V5c0-1.1-.9-2-2-2H6c-.83 0-1.54.5-1.84 1.22L1.14 10.27C1.05 10.5 1 10.74 1 11v2c0 1.1.9 2 2 2z"/></svg>
       <span>No me gusta</span>
+      <span class="react-count" data-count="dislike">0</span>
     </button>
   </div>
 </article>
@@ -90,27 +92,67 @@
 
 <script>
 (function(){
-  var key = 'contraluces-reaction:' + location.pathname;
+  var API = 'https://countapi.mileshilliard.com/api/v1/';
+  var pathKey = location.pathname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  var apiKeys = { like: 'lc-' + pathKey + '-like', dislike: 'lc-' + pathKey + '-dislike' };
+  var counts = { like: 0, dislike: 0 };
+  var storageKey = 'contraluces-reaction:' + location.pathname;
   var stored = null;
-  try { stored = localStorage.getItem(key); } catch(e) {}
+  try { stored = localStorage.getItem(storageKey); } catch(e) {}
+
   var wrap = document.querySelector('.reactions');
   if (!wrap) return;
   var buttons = wrap.querySelectorAll('.react-btn');
-  function paint(){
+
+  function render(){
     buttons.forEach(function(b){
-      b.classList.toggle('is-active', b.dataset.type === stored);
+      var type = b.dataset.type;
+      var countEl = b.querySelector('.react-count');
+      if (countEl) countEl.textContent = counts[type];
+      b.classList.toggle('is-active', type === stored);
     });
   }
-  paint();
+  render();
+
+  function fetchCount(type){
+    fetch(API + 'get/' + apiKeys[type])
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        if (data && typeof data.value === 'number') { counts[type] = data.value; render(); }
+      })
+      .catch(function(){});
+  }
+  fetchCount('like');
+  fetchCount('dislike');
+
+  function hit(type){
+    fetch(API + 'hit/' + apiKeys[type])
+      .then(function(r){ return r.json(); })
+      .then(function(data){ counts[type] = data.value; render(); })
+      .catch(function(){});
+  }
+  function undo(type){
+    var newVal = Math.max(0, counts[type] - 1);
+    counts[type] = newVal;
+    render();
+    fetch(API + 'set/' + apiKeys[type] + '?value=' + newVal).catch(function(){});
+  }
+
   buttons.forEach(function(btn){
     btn.addEventListener('click', function(){
       var type = btn.dataset.type;
-      stored = (stored === type) ? null : type;
-      try {
-        if (stored) localStorage.setItem(key, stored);
-        else localStorage.removeItem(key);
-      } catch(e) {}
-      paint();
+      var other = type === 'like' ? 'dislike' : 'like';
+      if (stored === type) {
+        stored = null;
+        try { localStorage.removeItem(storageKey); } catch(e) {}
+        undo(type);
+      } else {
+        if (stored === other) undo(other);
+        stored = type;
+        try { localStorage.setItem(storageKey, stored); } catch(e) {}
+        hit(type);
+      }
+      render();
     });
   });
 })();
