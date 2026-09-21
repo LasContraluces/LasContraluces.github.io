@@ -358,7 +358,7 @@ article.review h1 {
   line-height: 1.12;
 }
 
-article.review .meta { font-size: 1.15rem; letter-spacing: 1px; margin-bottom: 6px; }
+article.review .meta { display: inline-block; font-size: 1.15rem; letter-spacing: 1px; margin-bottom: 6px; }
 article.review.cine .back:hover { color: var(--c-cine); }
 article.review.series .back:hover { color: var(--c-series); }
 article.review.libros .back:hover { color: var(--c-libros); }
