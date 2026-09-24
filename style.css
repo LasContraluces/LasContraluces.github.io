@@ -179,6 +179,17 @@ header.site > * { position: relative; z-index: 1; }
   margin-top: 4px;
 }
 
+/* --- Últimas vistas: Letterboxd y Serializd lado a lado (se apilan en móvil) --- */
+.watch-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 48px;
+}
+
+.watch-row .lb-widget { margin: 30px 0 0; }
+
 .ep-widget {
   position: relative;
   z-index: 1;

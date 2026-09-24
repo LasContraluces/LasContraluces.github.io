@@ -35,9 +35,15 @@
       <a href="podcasts.html">Podcasts</a>
     </div>
     
-    <div class="lb-widget" id="lb-widget" style="display:none">
-      <div class="lb-label">Últimas vistas en Letterboxd</div>
-      <div class="lb-posters" id="lb-posters"></div>
+    <div class="watch-row">
+      <div class="lb-widget" id="lb-widget" style="display:none">
+        <div class="lb-label">Últimas vistas en Letterboxd</div>
+        <div class="lb-posters" id="lb-posters"></div>
+      </div>
+      <div class="lb-widget" id="sd-widget" style="display:none">
+        <div class="lb-label">Últimas vistas en Serializd</div>
+        <div class="lb-posters" id="sd-posters"></div>
+      </div>
     </div>
     
   </header>
@@ -549,6 +555,34 @@
     });
     document.getElementById("lb-widget").style.display = "block";
   }).catch(function () { /* si todo falla, el módulo se queda oculto sin más */ });
+})();
+
+(function () {
+  // Últimas series vistas en Serializd. Serializd no deja pedir su API desde el navegador,
+  // así que una GitHub Action (.github/workflows/serializd.yml) guarda los datos en serializd.json
+  var hour = Math.floor(Date.now() / 3600000);
+  fetch("serializd.json?h=" + hour).then(function (r) { return r.json(); }).then(function (data) {
+    var shows = (data.items || []).slice(0, 4);
+    if (!shows.length) return;
+
+    var container = document.getElementById("sd-posters");
+    shows.forEach(function (it) {
+      var wrap = document.createElement("a");
+      wrap.href = it.url;
+      wrap.target = "_blank";
+      wrap.rel = "noopener";
+      wrap.title = it.title;
+
+      var im = document.createElement("img");
+      im.src = it.poster;
+      im.alt = it.title;
+      im.loading = "lazy";
+      wrap.appendChild(im);
+
+      container.appendChild(wrap);
+    });
+    document.getElementById("sd-widget").style.display = "block";
+  }).catch(function () { /* si falla, el módulo se queda oculto sin más */ });
 })();
 </script>
 
