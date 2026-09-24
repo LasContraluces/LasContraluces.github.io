@@ -2,7 +2,7 @@ name: Serializd (últimas vistas)
 
 on:
   schedule:
-    - cron: "23 */3 * * *"   # cada 3 horas
+    - cron: "23 * * * *"     # cada hora, al minuto 23
   workflow_dispatch:          # botón "Run workflow" para lanzarlo a mano
 
 permissions:
