@@ -1,28 +1,28 @@
 {
   "items": [
     {
+      "title": "Reacher · T2",
+      "url": "https://www.serializd.com/show/Reacher-108978/season/364732/2",
+      "poster": "https://image.tmdb.org/t/p/w185/rQRe3ydBYGoyr1mgxUeGHVs2lw5.jpg",
+      "rating": 7
+    },
+    {
+      "title": "Brooklyn Nine-Nine · T3",
+      "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/69590/3",
+      "poster": "https://image.tmdb.org/t/p/w185/nqlpXFbyCGzeBaDVC2E6PO5itCw.jpg",
+      "rating": 9
+    },
+    {
       "title": "Neagley · T1",
       "url": "https://www.serializd.com/show/Neagley-273207/season/421460/1",
       "poster": "https://image.tmdb.org/t/p/w185/kjjrVO8A09If4kfH6iY9PVLxMA6.jpg",
       "rating": 7
     },
     {
-      "title": "Reacher · T4",
-      "url": "https://www.serializd.com/show/Reacher-108978/season/525713/4",
-      "poster": "https://image.tmdb.org/t/p/w185/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
-      "rating": 8
-    },
-    {
       "title": "Silo · T3",
       "url": "https://www.serializd.com/show/Silo-125988/season/512220/3",
       "poster": "https://image.tmdb.org/t/p/w185/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
       "rating": 9
-    },
-    {
-      "title": "Sugar · T2",
-      "url": "https://www.serializd.com/show/Sugar-203744/season/497924/2",
-      "poster": "https://image.tmdb.org/t/p/w185/tLmwLYiI7EpPbhgmdeivNGY0xw7.jpg",
-      "rating": 8
     }
   ]
 }
