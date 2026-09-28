@@ -311,6 +311,11 @@ ul.review-list li.cat-juegos a.row:hover { border-left-color: var(--c-juegos); b
   display: block;
 }
 
+.year {
+  color: var(--ink-dim);
+  font-weight: 400;
+}
+
 .row .tagline {
   font-family: 'Fraunces', serif;
   font-style: italic;
