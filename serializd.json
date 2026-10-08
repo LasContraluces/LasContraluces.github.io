@@ -1,9 +1,21 @@
 {
   "items": [
     {
+      "title": "Ted Lasso · T4",
+      "url": "https://www.serializd.com/show/Ted-Lasso-97546/season/466392/4",
+      "poster": "https://image.tmdb.org/t/p/w185/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+      "rating": 6
+    },
+    {
       "title": "Lanterns · T1",
       "url": "https://www.serializd.com/show/Lanterns-95350/season/165308/1",
       "poster": "https://image.tmdb.org/t/p/w185/j9PTWG0Xn0NeIRhGGFJbciNYWvS.jpg",
+      "rating": 9
+    },
+    {
+      "title": "Brooklyn Nine-Nine · T5",
+      "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/91751/5",
+      "poster": "https://image.tmdb.org/t/p/w185/dWOF2pJBNfunspM7PpVG6O9LWj3.jpg",
       "rating": 9
     },
     {
@@ -11,18 +23,6 @@
       "url": "https://www.serializd.com/show/The-Gentlemen-236235/season/406822/2",
       "poster": "https://image.tmdb.org/t/p/w185/rBzsL0kKGSepQ3iEYGxDMZQH3Wm.jpg",
       "rating": 9
-    },
-    {
-      "title": "Brooklyn Nine-Nine · T4",
-      "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/78513/4",
-      "poster": "https://image.tmdb.org/t/p/w185/6fsr582nvms8E4ag3jb3oHL76en.jpg",
-      "rating": 9
-    },
-    {
-      "title": "Reacher · T2",
-      "url": "https://www.serializd.com/show/Reacher-108978/season/364732/2",
-      "poster": "https://image.tmdb.org/t/p/w185/rQRe3ydBYGoyr1mgxUeGHVs2lw5.jpg",
-      "rating": 7
     }
   ]
 }
