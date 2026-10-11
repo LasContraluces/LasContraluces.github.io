@@ -1,6 +1,18 @@
 {
   "items": [
     {
+      "title": "Brooklyn Nine-Nine · T6",
+      "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/114567/6",
+      "poster": "https://image.tmdb.org/t/p/w185/xa9xA4Ieju9cyVkfJ47n1hnbHWB.jpg",
+      "rating": 9
+    },
+    {
+      "title": "East of Eden",
+      "url": "https://www.serializd.com/show/East-of-Eden-258165",
+      "poster": "https://image.tmdb.org/t/p/w185/axdUor6gLMTrrB1UF4Qfy0TTSyX.jpg",
+      "rating": 8
+    },
+    {
       "title": "Carrie",
       "url": "https://www.serializd.com/show/Carrie-288673/season/450854/1",
       "poster": "https://image.tmdb.org/t/p/w185/b7aKxwPj3QM8YHZ8uDyqr50i96D.jpg",
@@ -11,18 +23,6 @@
       "url": "https://www.serializd.com/show/Ted-Lasso-97546/season/466392/4",
       "poster": "https://image.tmdb.org/t/p/w185/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
       "rating": 6
-    },
-    {
-      "title": "Lanterns · T1",
-      "url": "https://www.serializd.com/show/Lanterns-95350/season/165308/1",
-      "poster": "https://image.tmdb.org/t/p/w185/j9PTWG0Xn0NeIRhGGFJbciNYWvS.jpg",
-      "rating": 9
-    },
-    {
-      "title": "Brooklyn Nine-Nine · T5",
-      "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/91751/5",
-      "poster": "https://image.tmdb.org/t/p/w185/dWOF2pJBNfunspM7PpVG6O9LWj3.jpg",
-      "rating": 9
     }
   ]
 }
