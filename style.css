@@ -29,18 +29,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--c-cine); outlin
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .wrap.wide { max-width: 960px; }
 
-.promo-banner {
-  display: block;
-  max-width: 460px;
-  margin: 0 auto;
-}
-
-.promo-banner img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /* --- Cabecera: el contraluz como pieza visual --- */
 header.site {
   position: relative;
