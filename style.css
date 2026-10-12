@@ -472,3 +472,51 @@ footer.site {
   .sidebar { width: 100%; padding-top: 24px; }
   .sidebar .lb-posters a { max-width: 90px; }
 }
+
+/* --- Buscador --- */
+nav.filters { position: relative; align-items: center; }
+.search { margin-left: auto; position: relative; }
+.search input {
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  width: 190px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search input::placeholder { color: var(--ink-dim); }
+.search input:focus { outline: none; border-color: var(--ink-dim); }
+.search-results {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: min(460px, calc(100vw - 48px));
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 30px rgba(0,0,0,.55);
+  z-index: 50;
+}
+.search-results[hidden] { display: none; }
+.sr-item { display: block; padding: 11px 14px; border-bottom: 1px solid var(--rule); }
+.sr-item:last-child { border-bottom: 0; }
+.sr-item:hover { background: rgba(255,255,255,.04); }
+.sr-cat { font-size: 0.68rem; text-transform: uppercase; letter-spacing: .08em; margin-right: 8px; color: var(--ink-dim); }
+.sr-item.cat-cine .sr-cat { color: var(--c-cine); }
+.sr-item.cat-series .sr-cat { color: var(--c-series); }
+.sr-item.cat-libros .sr-cat { color: var(--c-libros); }
+.sr-item.cat-juegos .sr-cat { color: var(--c-juegos); }
+.sr-title { color: var(--ink); }
+.sr-year { color: var(--ink-dim); font-size: 0.85rem; }
+.sr-snip { display: block; color: var(--ink-dim); font-size: 0.82rem; margin-top: 3px; line-height: 1.4; }
+.sr-empty { padding: 12px 14px; color: var(--ink-dim); font-size: 0.88rem; }
+@media (max-width: 480px) {
+  .search { margin-left: 0; width: 100%; }
+  .search input { width: 100%; font-size: 16px; }
+  .search-results { left: 0; right: auto; width: 100%; }
+}
