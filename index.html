@@ -892,6 +892,85 @@
 </script>
 
 
+<script>
+(function () {
+  // Portada: las 4 primeras reseñas de la lista pasan a "Lo último" y el resto
+  // se muestra de 12 en 12. La lista completa sigue en el HTML (la usa el buscador).
+  var list = document.querySelector("ul.review-list");
+  var layout = document.querySelector(".home-layout");
+  if (!list || !layout) return;
+  var items = [].slice.call(list.children).filter(function (n) { return n.tagName === "LI"; });
+  var FEAT = 4, STEP = 12;
+  if (items.length <= FEAT) return;
+
+  var sec = document.createElement("section");
+  sec.className = "featured-wrap";
+  var h1 = document.createElement("h2");
+  h1.className = "sec-title";
+  h1.textContent = "Lo último";
+  sec.appendChild(h1);
+  var ul = document.createElement("ul");
+  ul.className = "featured";
+
+  items.slice(0, FEAT).forEach(function (li, i) {
+    var row = li.querySelector("a.row");
+    if (!row) return;
+    var img = li.querySelector("img.row-thumb");
+    var title = li.querySelector(".title");
+    var tagline = li.querySelector(".tagline");
+    var stars = li.querySelector(".stars");
+
+    var f = document.createElement("li");
+    f.className = li.className + (i === 0 ? " first" : "");
+    var card = document.createElement("a");
+    card.className = "card";
+    card.href = row.getAttribute("href");
+    if (img) {
+      var im = document.createElement("img");
+      im.className = "card-img";
+      im.src = img.getAttribute("src");
+      im.alt = "";
+      if (i > 0) im.loading = "lazy";
+      card.appendChild(im);
+    }
+    var body = document.createElement("span");
+    body.className = "card-body";
+    if (title) body.appendChild(title.cloneNode(true));
+    if (tagline) body.appendChild(tagline.cloneNode(true));
+    if (stars) body.appendChild(stars.cloneNode(true));
+    card.appendChild(body);
+    f.appendChild(card);
+    ul.appendChild(f);
+    li.classList.add("is-feat");
+  });
+  sec.appendChild(ul);
+  layout.parentNode.insertBefore(sec, layout);
+
+  var h2 = document.createElement("h2");
+  h2.className = "sec-title";
+  h2.textContent = "Archivo";
+  list.parentNode.insertBefore(h2, list);
+
+  var rest = items.slice(FEAT), shown = 0;
+  var wrap = document.createElement("div");
+  wrap.className = "more-wrap";
+  var btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "more";
+  btn.textContent = "Ver más";
+  wrap.appendChild(btn);
+  list.parentNode.insertBefore(wrap, list.nextSibling);
+  rest.forEach(function (li) { li.classList.add("is-more-hidden"); });
+  function more() {
+    rest.slice(shown, shown + STEP).forEach(function (li) { li.classList.remove("is-more-hidden"); });
+    shown += STEP;
+    if (shown >= rest.length) wrap.style.display = "none";
+  }
+  btn.addEventListener("click", more);
+  more();
+})();
+</script>
+
 <script src="search.js"></script>
 </body>
 </html>
