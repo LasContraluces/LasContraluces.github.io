@@ -670,3 +670,67 @@ li.cat-juegos .nota, article.review.juegos .nota { color: var(--c-juegos); }
 article.review .score { margin-bottom: 6px; }
 article.review .score .meta { margin-bottom: 0; }
 article.review .nota { font-size: 1.5rem; }
+
+/* --- Top 10: pestaña, página y bloque "Mi top 5" --- */
+nav.filters a.active.top { color: var(--ink); border-bottom-color: var(--ink); }
+
+.top-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.15;
+  margin: 40px 0 6px;
+}
+.top-intro {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: 1.05rem;
+  margin: 0 0 20px;
+}
+ul.review-list a.row .rk {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 1;
+  width: 60px;
+  flex-shrink: 0;
+  color: var(--ink);
+}
+li.cat-cine .rk, li.cat-cine .top-rk { color: var(--c-cine); }
+li.cat-series .rk, li.cat-series .top-rk { color: var(--c-series); }
+li.cat-libros .rk, li.cat-libros .top-rk { color: var(--c-libros); }
+li.cat-juegos .rk, li.cat-juegos .top-rk { color: var(--c-juegos); }
+
+.top-widget .ep-list a { align-items: center; justify-content: flex-start; gap: 0; padding: 12px 14px; }
+.top-rk {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 38px;
+  flex-shrink: 0;
+}
+.top-widget .ep-title {
+  flex: 1;
+  min-width: 0;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
+.top-widget .ep-title .year { font-size: 0.85em; }
+.top-n {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink);
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+.top-more { display: inline-block; margin-top: 10px; font-size: 0.88rem; color: var(--ink-dim); }
+.top-more:hover { color: var(--ink); }
+
+@media (max-width: 480px) {
+  ul.review-list a.row .rk { font-size: 2rem; width: auto; }
+}
