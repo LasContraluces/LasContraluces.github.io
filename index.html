@@ -896,7 +896,7 @@
 
 <script>
 (function () {
-  // Portada: las 4 primeras reseñas de la lista pasan a "Lo último" y el resto
+  // Portada: las 4 primeras reseñas de la lista pasan a "Portada" y el resto
   // se muestra de 12 en 12. La lista completa sigue en el HTML (la usa el buscador).
   var list = document.querySelector("ul.review-list");
   var layout = document.querySelector(".home-layout");
@@ -909,7 +909,7 @@
   sec.className = "featured-wrap";
   var h1 = document.createElement("h2");
   h1.className = "sec-title";
-  h1.textContent = "Lo último";
+  h1.textContent = "Portada";
   sec.appendChild(h1);
   var ul = document.createElement("ul");
   ul.className = "featured";
