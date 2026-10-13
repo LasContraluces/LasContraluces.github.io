@@ -738,19 +738,13 @@
 </ul>
     </main>
     <aside class="sidebar">
-      <!-- top5:start -->
-<div class="ep-widget top-widget">
-        <div class="lb-label">Mi top 5</div>
-        <ul class="ep-list">
-          <li class="cat-series"><a href="reviews/andor.html"><span class="top-rk">1</span><span class="ep-title">Andor <span class="year">(2025)</span></span><span class="top-n">9,5</span></a></li>
-          <li class="cat-cine"><a href="reviews/master-commander.html"><span class="top-rk">2</span><span class="ep-title">Master &amp; Commander <span class="year">(2003)</span></span><span class="top-n">9,5</span></a></li>
-          <li class="cat-series"><a href="reviews/sandman.html"><span class="top-rk">3</span><span class="ep-title">Sandman <span class="year">(2022-2025)</span></span><span class="top-n">9,3</span></a></li>
-          <li class="cat-series"><a href="reviews/the-gentlemen-t2.html"><span class="top-rk">4</span><span class="ep-title">The Gentlemen — T2 <span class="year">(2026)</span></span><span class="top-n">9,2</span></a></li>
-          <li class="cat-series"><a href="reviews/sugar-temporada-2.html"><span class="top-rk">5</span><span class="ep-title">Sugar — T2 <span class="year">(2026)</span></span><span class="top-n">9</span></a></li>
-        </ul>
+      <!-- masvistas:start -->
+<div class="ep-widget top-widget" id="mv-widget" style="display:none">
+        <div class="lb-label">Más vistas</div>
+        <ul class="ep-list" id="mv-list"></ul>
         <a class="top-more" href="top.html">Ver el top 10 →</a>
       </div>
-      <!-- top5:end -->
+      <!-- masvistas:end -->
 
       <div class="ep-widget" id="ep-widget" style="display:none">
         <div class="lb-label">Últimos episodios de La Contralúdica</div>
@@ -880,6 +874,38 @@
 })();
 
 (function () {
+  // Reseñas más vistas. Una GitHub Action (.github/workflows/masvistas.yml) lee los contadores
+  // de GoatCounter cada pocas horas y guarda el resultado en masvistas.json.
+  var hour = Math.floor(Date.now() / 3600000);
+  fetch("masvistas.json?h=" + hour).then(function (r) { return r.json(); }).then(function (data) {
+    var items = (data.items || []).slice(0, 5);
+    if (!items.length) return;
+    var ul = document.getElementById("mv-list");
+    items.forEach(function (it, i) {
+      var li = document.createElement("li");
+      li.className = "cat-" + it.cat;
+      var a = document.createElement("a");
+      a.href = it.href;
+      var rk = document.createElement("span");
+      rk.className = "top-rk";
+      rk.textContent = i + 1;
+      var tt = document.createElement("span");
+      tt.className = "ep-title";
+      tt.appendChild(document.createTextNode(it.name + " "));
+      var y = document.createElement("span");
+      y.className = "year";
+      y.textContent = it.year;
+      tt.appendChild(y);
+      a.appendChild(rk);
+      a.appendChild(tt);
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    document.getElementById("mv-widget").style.display = "block";
+  }).catch(function () { /* sin datos, el bloque se queda oculto */ });
+})();
+
+(function () {
   // Últimas series vistas en Serializd. Serializd no deja pedir su API desde el navegador,
   // así que una GitHub Action (.github/workflows/serializd.yml) guarda los datos en serializd.json
   var hour = Math.floor(Date.now() / 3600000);
@@ -989,5 +1015,6 @@
 </script>
 
 <script src="search.js"></script>
+<script data-goatcounter="https://lascontraluces.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

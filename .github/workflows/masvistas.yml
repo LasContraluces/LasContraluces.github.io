@@ -1,0 +1,34 @@
+name: Más vistas (GoatCounter)
+
+on:
+  schedule:
+    - cron: "41 */4 * * *"   # cada 4 horas
+  workflow_dispatch:          # botón "Run workflow" para lanzarlo a mano
+
+permissions:
+  contents: write
+
+concurrency:
+  group: masvistas
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Leer visitas de GoatCounter
+        run: python3 .github/scripts/masvistas.py
+
+      - name: Guardar cambios
+        run: |
+          if git diff --quiet -- masvistas.json; then
+            echo "Sin cambios en las más vistas"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add masvistas.json
+          git commit -m "Más vistas: actualización"
+          git push

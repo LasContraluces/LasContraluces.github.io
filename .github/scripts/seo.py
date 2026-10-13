@@ -233,27 +233,6 @@ if top_items and os.path.exists("libros.html"):
     s = re.sub(r"<main>.*?</main>", lambda m: main, s, count=1, flags=re.S)
     write("top.html", s)
 
-TOP5_RE = re.compile(r"<!-- top5:start -->.*?<!-- top5:end -->\n?", re.S)
-
-
-def top5_block():
-    lis = []
-    for i, it in enumerate(top_items[:5], 1):
-        lis.append('<li class="cat-%s"><a href="%s"><span class="top-rk">%d</span><span class="ep-title">%s <span class="year">%s</span></span>'
-                   '<span class="top-n">%s</span></a></li>' % (it["cat"], it["href"], i, html.escape(it["name"]), it["year"], it["nota"]))
-    return ('<!-- top5:start -->\n<div class="ep-widget top-widget">\n        <div class="lb-label">Mi top 5</div>\n'
-            '        <ul class="ep-list">\n          %s\n        </ul>\n        <a class="top-more" href="top.html">Ver el top 10 →</a>\n'
-            '      </div>\n      <!-- top5:end -->\n') % "\n          ".join(lis)
-
-
-s = open("index.html", encoding="utf-8").read()
-blk = top5_block() if top_items else ""
-if TOP5_RE.search(s):
-    s = TOP5_RE.sub(lambda m: blk, s, count=1)
-elif blk:
-    s = s.replace('<aside class="sidebar">', '<aside class="sidebar">\n      ' + blk, 1)
-write("index.html", s)
-
 # ---- resto de páginas ----
 pages = {"index.html": BASE, "cine.html": BASE + "cine.html", "series.html": BASE + "series.html",
          "libros.html": BASE + "libros.html", "juegos.html": BASE + "juegos.html", "podcasts.html": BASE + "podcasts.html",
@@ -261,6 +240,15 @@ pages = {"index.html": BASE, "cine.html": BASE + "cine.html", "series.html": BAS
 for p, url in pages.items():
     if os.path.exists(p):
         write(p, add_head_links(open(p, encoding="utf-8").read(), url))
+
+
+# ---- contador GoatCounter (visitas por página; alimenta "Más vistas") ----
+GC = '<script data-goatcounter="https://lascontraluces.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+import glob
+for p in sorted(glob.glob("*.html") + glob.glob("reviews/*.html")):
+    t = open(p, encoding="utf-8").read()
+    if "goatcounter" not in t and "</body>" in t:
+        write(p, t.replace("</body>", GC + "\n</body>", 1))
 
 # ---- sitemap.xml ----
 urls = []
