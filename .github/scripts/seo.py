@@ -211,7 +211,13 @@ by_slug = {it["slug"]: it for it in items}
 missing = [s for s in TOP if s not in by_slug]
 if missing:
     print("AVISO: slugs de top.json que no existen:", missing)
-top_items = [by_slug[s] for s in TOP if s in by_slug]
+# El top se calcula solo: ordenado por nota (notas.json). top.json solo sirve de desempate
+# entre reseñas con la misma nota (las que aparecen antes ahí van primero; el resto, después
+# y en el orden de la portada).
+_pos = {s: i for i, s in enumerate(TOP)}
+_idx = {it["slug"]: i for i, it in enumerate(items)}
+top_items = sorted((it for it in items if it["slug"] in NOTAS),
+                   key=lambda it: (-float(NOTAS[it["slug"]]), _pos.get(it["slug"], 999), _idx[it["slug"]]))[:10]
 
 if top_items and os.path.exists("libros.html"):
     rows = []
