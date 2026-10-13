@@ -4,7 +4,7 @@
 - Cada reseña: descripción = tagline, imagen para compartir = su portada,
   canonical, og:url, og:type article y enlace al feed.
 - Resto de páginas: canonical y enlace al feed.
-- Estrellas accesibles: role="img" + aria-label con la nota real (se deduce del relleno).
+- Nota numérica (sobre 10) junto a las estrellas, deducida del relleno, y aria-label accesible.
 - Final de cada reseña: bloque "Más reseñas de [categoría]" (las 3 últimas de su categoría).
 - Genera sitemap.xml, robots.txt y feed.xml (últimas 30 reseñas, en el orden de la portada, sin fechas: el sitio no guarda la de publicación).
 Ejecutar desde la raíz del repo:  python3 .github/scripts/seo.py
@@ -62,19 +62,30 @@ def write(path, s):
 
 
 
-# ---- estrellas accesibles (no cambia nada visual) ----
-STAR_RE = re.compile(r'<(span|div) class="(stars|meta)"( style="background-image:linear-gradient\(90deg,var\(--star-color\) ([\d.]+)%,transparent [\d.]+%\)")>')
+# ---- nota numérica junto a las estrellas (el relleno de las estrellas no cambia) ----
+UNWRAP_RE = re.compile(
+    r'<(span|div) class="score"><span class="nota"[^>]*>[^<]*<small>/10</small></span>'
+    r'(<(?:span|div) class="(?:stars|meta)"[^>]*>★★★★★</(?:span|div)>)</\1>')
+STAR_RE = re.compile(
+    r'<(span|div) class="(stars|meta)" (style="background-image:linear-gradient\(90deg,var\(--star-color\) ([\d.]+)%,transparent [\d.]+%\)")'
+    r'(?: role="img" aria-label="[^"]*")?>★★★★★</\1>')
 
 
-def star_label(m):
-    nota = float(m.group(4)) / 20
-    txt = ("%d" % nota) if nota == int(nota) else ("%.1f" % nota).replace(".", ",")
-    return '<%s class="%s"%s role="img" aria-label="%s de 5">' % (m.group(1), m.group(2), m.group(3), txt)
+def nota_txt(pct):
+    n = float(pct) / 10
+    return ("%d" % n) if n == int(n) else ("%.1f" % n).replace(".", ",")
+
+
+def add_score(m):
+    tag, cls, style, pct = m.group(1), m.group(2), m.group(3), m.group(4)
+    n = nota_txt(pct)
+    return ('<%s class="score"><span class="nota" aria-hidden="true">%s<small>/10</small></span>'
+            '<%s class="%s" %s role="img" aria-label="%s de 10">★★★★★</%s></%s>') % (tag, n, tag, cls, style, n, tag, tag)
 
 
 for f in glob.glob("*.html") + glob.glob("reviews/*.html"):
     t = open(f, encoding="utf-8").read()
-    t2 = STAR_RE.sub(star_label, t)
+    t2 = STAR_RE.sub(add_score, UNWRAP_RE.sub(lambda m: m.group(2), t))
     if t2 != t:
         write(f, t2)
 

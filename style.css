@@ -604,12 +604,10 @@ nav.filters { position: relative; align-items: center; }
   margin-top: 6px;
 }
 .featured li.first .tagline { font-size: 1.05rem; max-width: 56ch; }
-.card .stars {
-  align-self: flex-start;
-  margin-top: 10px;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
+.card .score { align-self: flex-start; margin-top: 12px; }
+.card .stars { font-size: 1rem; letter-spacing: 1px; }
+.featured li.first .nota { font-size: 1.6rem; }
+.featured li.first .stars { font-size: 1.15rem; }
 
 ul.review-list li.is-feat,
 ul.review-list li.is-more-hidden { display: none; }
@@ -648,3 +646,27 @@ ul.review-list li.is-more-hidden { display: none; }
 .related.series .related-more a:hover { color: var(--c-series); }
 .related.libros .related-more a:hover { color: var(--c-libros); }
 .related.juegos .related-more a:hover { color: var(--c-juegos); }
+
+/* --- Nota numérica junto a las estrellas --- */
+.score { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nota {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--ink);
+}
+.nota small {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+  margin-left: 1px;
+}
+li.cat-cine .nota, article.review.cine .nota { color: var(--c-cine); }
+li.cat-series .nota, article.review.series .nota { color: var(--c-series); }
+li.cat-libros .nota, article.review.libros .nota { color: var(--c-libros); }
+li.cat-juegos .nota, article.review.juegos .nota { color: var(--c-juegos); }
+article.review .score { margin-bottom: 6px; }
+article.review .score .meta { margin-bottom: 0; }
+article.review .nota { font-size: 1.5rem; }
