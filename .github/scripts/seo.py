@@ -4,6 +4,8 @@
 - Cada reseña: descripción = tagline, imagen para compartir = su portada,
   canonical, og:url, og:type article y enlace al feed.
 - Resto de páginas: canonical y enlace al feed.
+- Estrellas accesibles: role="img" + aria-label con la nota real (se deduce del relleno).
+- Final de cada reseña: bloque "Más reseñas de [categoría]" (las 3 últimas de su categoría).
 - Genera sitemap.xml, robots.txt y feed.xml (últimas 30 reseñas, en el orden de la portada, sin fechas: el sitio no guarda la de publicación).
 Ejecutar desde la raíz del repo:  python3 .github/scripts/seo.py
 """
@@ -59,6 +61,23 @@ def write(path, s):
         f.write(s)
 
 
+
+# ---- estrellas accesibles (no cambia nada visual) ----
+STAR_RE = re.compile(r'<(span|div) class="(stars|meta)"( style="background-image:linear-gradient\(90deg,var\(--star-color\) ([\d.]+)%,transparent [\d.]+%\)")>')
+
+
+def star_label(m):
+    nota = float(m.group(4)) / 20
+    txt = ("%d" % nota) if nota == int(nota) else ("%.1f" % nota).replace(".", ",")
+    return '<%s class="%s"%s role="img" aria-label="%s de 5">' % (m.group(1), m.group(2), m.group(3), txt)
+
+
+for f in glob.glob("*.html") + glob.glob("reviews/*.html"):
+    t = open(f, encoding="utf-8").read()
+    t2 = STAR_RE.sub(star_label, t)
+    if t2 != t:
+        write(f, t2)
+
 # ---- lista de reseñas, en el orden de la portada ----
 idx = open("index.html", encoding="utf-8").read()
 start = idx.index('<ul class="review-list"')
@@ -73,7 +92,31 @@ for m in re.finditer(r'<li class="cat-(\w+)">(.*?)</li>', idx[start:], re.S):
     title = text_of(tt.group(1))
     if cat_tag:
         title = title[len(text_of(cat_tag.group(1))):].strip()
-    items.append({"cat": cat, "href": href.group(1), "title": title, "tagline": text_of(tt.group(2))})
+    items.append({"li": m.group(0), "cat": cat, "href": href.group(1), "title": title, "tagline": text_of(tt.group(2))})
+
+
+LABELS = {
+    "cine": ("cine", "Ver todo el cine"),
+    "series": ("series", "Ver todas las series"),
+    "libros": ("libros", "Ver todos los libros"),
+    "juegos": ("juegos", "Ver todos los juegos"),
+}
+RELATED_RE = re.compile(r"<!-- related:start -->.*?<!-- related:end -->\n?", re.S)
+
+
+def related_block(it):
+    otros = [o for o in items if o["cat"] == it["cat"] and o["href"] != it["href"]][:3]
+    if not otros or it["cat"] not in LABELS:
+        return ""
+    nombre, ver = LABELS[it["cat"]]
+    lis = []
+    for o in otros:
+        li = re.sub(r">\s+<", "><", o["li"]).strip()
+        li = li.replace('href="reviews/', 'href="').replace('src="images/', 'src="../images/')
+        lis.append(li)
+    return ('<!-- related:start -->\n<section class="related %s">\n  <h2 class="sec-title">Más reseñas de %s</h2>\n'
+            '  <ul class="review-list">\n%s\n  </ul>\n  <p class="related-more"><a href="../%s.html">%s →</a></p>\n'
+            '</section>\n<!-- related:end -->\n') % (it["cat"], nombre, "\n".join(lis), it["cat"], ver)
 
 # ---- páginas de reseña ----
 for it in items:
@@ -99,6 +142,11 @@ for it in items:
     else:
         s = add_after(s, r'<meta property="og:type" content="[^"]*">', '<meta property="og:url" content="%s">' % url)
     s = add_head_links(s, url)
+    block = related_block(it)
+    if RELATED_RE.search(s):
+        s = RELATED_RE.sub(lambda m: block, s, count=1)
+    elif block:
+        s = s.replace("</article>", "</article>\n" + block.rstrip("\n"), 1)
     write(p, s)
 
 # ---- resto de páginas ----

@@ -633,3 +633,18 @@ ul.review-list li.is-more-hidden { display: none; }
   .featured li.first .title { font-size: 1.6rem; }
   .featured li.first .card-body { padding: 20px; }
 }
+
+/* --- Final de reseña: "Más reseñas de ..." --- */
+.related {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.related .sec-title { margin: 0 0 4px; }
+.related-more { margin: 18px 0 0; font-size: 0.9rem; }
+.related-more a { color: var(--ink-dim); border-bottom: 1px solid transparent; }
+.related-more a:hover { color: var(--ink); border-bottom-color: currentColor; }
+.related.cine .related-more a:hover { color: var(--c-cine); }
+.related.series .related-more a:hover { color: var(--c-series); }
+.related.libros .related-more a:hover { color: var(--c-libros); }
+.related.juegos .related-more a:hover { color: var(--c-juegos); }
