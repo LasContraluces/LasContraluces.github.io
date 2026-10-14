@@ -2,6 +2,13 @@
  "items": [
   {
    "cat": "cine",
+   "href": "reviews/deja-vu.html",
+   "name": "Déjà Vu",
+   "year": "(2006)",
+   "count": 2
+  },
+  {
+   "cat": "cine",
    "href": "reviews/la-muerte-de-robin-hood.html",
    "name": "La muerte de Robin Hood",
    "year": "(2026)",
@@ -26,13 +33,6 @@
    "href": "reviews/los-demonios-de-la-noche.html",
    "name": "Los demonios de la noche",
    "year": "(1996)",
-   "count": 1
-  },
-  {
-   "cat": "series",
-   "href": "reviews/bosch-legacy.html",
-   "name": "Bosch: Legacy",
-   "year": "(2022-2025)",
    "count": 1
   }
  ]
