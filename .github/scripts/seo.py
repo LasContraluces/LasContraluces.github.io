@@ -162,7 +162,7 @@ RELATED_RE = re.compile(r"<!-- related:start -->.*?<!-- related:end -->\n?", re.
 
 
 def related_block(it):
-    otros = [o for o in items if o["cat"] == it["cat"] and o["href"] != it["href"]][:3]
+    otros = [o for o in items if o["cat"] == it["cat"] and o["href"] != it["href"]][:2]
     if not otros or it["cat"] not in LABELS:
         return ""
     nombre, ver = LABELS[it["cat"]]
@@ -172,7 +172,7 @@ def related_block(it):
         li = li.replace('href="reviews/', 'href="').replace('src="images/', 'src="../images/')
         lis.append(li)
     return ('<!-- related:start -->\n<section class="related %s">\n  <h2 class="sec-title">Más reseñas de %s</h2>\n'
-            '  <ul class="review-list">\n%s\n  </ul>\n  <p class="related-more"><a href="../%s.html">%s →</a></p>\n'
+            '  <ul class="review-list">\n%s\n  </ul>\n  <p class="related-more"><a href="../%s.html">%s →</a> <a href="../top.html">Top 10 reseñas →</a> <a href="../index.html#mv-widget">Más vistas →</a></p>\n'
             '</section>\n<!-- related:end -->\n') % (it["cat"], nombre, "\n".join(lis), it["cat"], ver)
 
 
