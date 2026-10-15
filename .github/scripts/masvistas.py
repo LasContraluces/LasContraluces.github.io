@@ -46,9 +46,10 @@ def reviews():
 
 def views(path):
     url = "https://%s.goatcounter.com/counter/%s.json" % (CODE, urllib.parse.quote("/" + path, safe="/"))
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (lascontraluces.com masvistas)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "lascontraluces-masvistas/1.0 (+https://lascontraluces.com)",
+                                               "Accept": "application/json", "Connection": "close"})
     err = None
-    for espera in (0, 5, 15, 30):          # reintentos con pausa creciente (por si hay límite de peticiones)
+    for espera in (0, 5, 20):              # reintentos con pausa creciente
         time.sleep(espera)
         try:
             with urllib.request.urlopen(req, timeout=20) as r:
@@ -67,21 +68,39 @@ def views(path):
 
 
 def main():
-    res = []
+    # Se guardan los contadores de la última vez: si una página falla, conserva su valor anterior.
+    previo = {}
+    if OUT.exists():
+        try:
+            previo = json.loads(OUT.read_text(encoding="utf-8")).get("counts", {})
+        except Exception:  # noqa: BLE001
+            previo = {}
+    res, ok, fallos_seguidos = [], 0, 0
     for it in reviews():
         n = views(it["href"])
         if n is None:
-            # Un fallo puntual no debe poner la Action en rojo ni falsear el ranking:
-            # se deja masvistas.json como está y se vuelve a intentar en la próxima ejecución.
-            print("No se pudo leer GoatCounter completo; no toco masvistas.json")
-            return
+            fallos_seguidos += 1
+            n = previo.get(it["href"], 0)
+            if fallos_seguidos >= 3:
+                print("GoatCounter rechaza las consultas; se corta esta ejecución")
+                break
+        else:
+            ok += 1
+            fallos_seguidos = 0
         it["count"] = n
         res.append(it)
         time.sleep(1)
-    res.sort(key=lambda x: -x["count"])
-    top = [x for x in res if x["count"] > 0][:TOP]
-    OUT.write_text(json.dumps({"items": top}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print("reseñas leídas:", len(res), "| con visitas:", sum(1 for x in res if x["count"] > 0))
+    if ok == 0:
+        print("No se pudo leer ninguna página; no toco masvistas.json")
+        return
+    counts = dict(previo)
+    counts.update({x["href"]: x["count"] for x in res})
+    todas = reviews()
+    for x in todas:
+        x["count"] = counts.get(x["href"], 0)
+    top = sorted((x for x in todas if x["count"] > 0), key=lambda x: -x["count"])[:TOP]
+    OUT.write_text(json.dumps({"items": top, "counts": counts}, ensure_ascii=False, indent=1, sort_keys=False) + "\n", encoding="utf-8")
+    print("reseñas leídas:", ok, "de", len(res), "| con visitas:", sum(1 for x in todas if x["count"] > 0))
 
 
 main()
