@@ -105,9 +105,10 @@ def add_score(m, nota=None):
 
 
 def add_nav(t):
-    if re.search(r'<a href="[^"]*top\.html"[^>]*>Top 10</a>', t):
+    t = re.sub(r'(<a href="[^"]*top\.html"[^>]*>)Top 10</a>', r'\1Top 10 reseñas</a>', t)
+    if re.search(r'<a href="[^"]*top\.html"[^>]*>Top 10 reseñas</a>', t):
         return t
-    return NAV_RE.sub(lambda m: m.group(1) + '\n    <a href="%stop.html" class="">Top 10</a>' % m.group(2), t, count=1)
+    return NAV_RE.sub(lambda m: m.group(1) + '\n    <a href="%stop.html" class="">Top 10 reseñas</a>' % m.group(2), t, count=1)
 
 
 for f in glob.glob("*.html") + glob.glob("reviews/*.html"):
@@ -229,12 +230,11 @@ if top_items and os.path.exists("libros.html"):
     s = s.replace("Libros — Las Contraluces", "Top 10 — Las Contraluces")
     s = s.replace('href="%slibros.html"' % BASE, 'href="%stop.html"' % BASE)
     s = s.replace('class="active libros"', 'class=""')
-    s = s.replace('<a href="top.html" class="">Top 10</a>', '<a href="top.html" class="active top">Top 10</a>')
+    s = s.replace('<a href="top.html" class="">Top 10 reseñas</a>', '<a href="top.html" class="active top">Top 10 reseñas</a>')
     desc = "Mi top 10: lo mejor que he visto y leído desde que empezó el blog, con nota."
     for key, name in (("name", "description"), ("property", "og:description")):
         s = set_meta(s, key, name, desc)
-    main = ('<main>\n    <h1 class="top-title">Mi top 10</h1>\n'
-            '    <p class="top-intro">Lo mejor que he visto y leído desde que empezó el blog.</p>\n'
+    main = ('<main>\n    <h1 class="top-title">Top 10 reseñas</h1>\n'
             '    <ul class="review-list top-list">\n%s\n    </ul>\n  </main>') % "\n".join(rows)
     s = re.sub(r"<main>.*?</main>", lambda m: main, s, count=1, flags=re.S)
     write("top.html", s)
