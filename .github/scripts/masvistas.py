@@ -7,8 +7,10 @@ Requisito: en GoatCounter, Settings > Site > "Allow adding visitor counts on you
 Uso local:  python3 .github/scripts/masvistas.py
 """
 
+import datetime
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -67,6 +69,30 @@ def views(path):
     return None
 
 
+def api_counts():
+    """Visitas de todas las páginas con una sola consulta a la API de GoatCounter (necesita GOATCOUNTER_TOKEN)."""
+    token = os.environ.get("GOATCOUNTER_TOKEN", "").strip()
+    if not token:
+        return None
+    fin = datetime.datetime.now(datetime.timezone.utc)
+    url = ("https://%s.goatcounter.com/api/v0/stats/hits?start=2020-01-01T00:00:00Z&end=%s&limit=100&daily=false"
+           % (CODE, fin.strftime("%Y-%m-%dT%H:%M:%SZ")))
+    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + token, "Accept": "application/json",
+                                               "User-Agent": "lascontraluces-masvistas/1.0"})
+    for espera in (0, 10, 30):
+        time.sleep(espera)
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                data = json.load(r)
+            out = {}
+            for h in data.get("hits", []):
+                out[h.get("path", "").lstrip("/")] = int(h.get("count", 0))
+            return out
+        except Exception as e:  # noqa: BLE001
+            print("AVISO: la API de GoatCounter falló (%s)" % e)
+    return None
+
+
 def main():
     # Se guardan los contadores de la última vez: si una página falla, conserva su valor anterior.
     previo = {}
@@ -76,8 +102,14 @@ def main():
         except Exception:  # noqa: BLE001
             previo = {}
     res, ok, fallos_seguidos = [], 0, 0
+    por_api = api_counts()
+    if por_api is not None:
+        print("Visitas leídas con la API de GoatCounter:", len(por_api), "páginas con visitas")
     for it in reviews():
-        n = views(it["href"])
+        if por_api is not None:
+            n = por_api.get(it["href"], 0)
+        else:
+            n = views(it["href"])
         if n is None:
             fallos_seguidos += 1
             n = previo.get(it["href"], 0)
@@ -89,7 +121,8 @@ def main():
             fallos_seguidos = 0
         it["count"] = n
         res.append(it)
-        time.sleep(1)
+        if por_api is None:
+            time.sleep(1)
     if ok == 0:
         print("No se pudo leer ninguna página; no toco masvistas.json")
         return

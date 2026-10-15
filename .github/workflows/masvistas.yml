@@ -19,6 +19,8 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Leer visitas de GoatCounter
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
         run: python3 .github/scripts/masvistas.py
 
       - name: Guardar cambios
