@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>El final de Oak Street (2026)</title>
+    <link>https://lascontraluces.com/reviews/el-final-de-oak-street.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/el-final-de-oak-street.html</guid>
+    <category>Cine</category>
+    <description>Los dinosaurios salvan lo que la familia no consigue</description>
+  </item>
+  <item>
     <title>La muerte de Robin Hood (2026)</title>
     <link>https://lascontraluces.com/reviews/la-muerte-de-robin-hood.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/la-muerte-de-robin-hood.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/superman.html</guid>
     <category>Cine</category>
     <description>Un cómic en movimiento, y el mejor Superman desde Richard Donner</description>
-  </item>
-  <item>
-    <title>Misión: Imposible – The Final Reckoning (2025)</title>
-    <link>https://lascontraluces.com/reviews/mision-imposible-the-final-reckoning.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/mision-imposible-the-final-reckoning.html</guid>
-    <category>Cine</category>
-    <description>Cruise se juega el cuello una vez más; el guion, bastante menos</description>
   </item>
 </channel>
 </rss>
