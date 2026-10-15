@@ -162,7 +162,7 @@ RELATED_RE = re.compile(r"<!-- related:start -->.*?<!-- related:end -->\n?", re.
 
 
 def related_block(it):
-    otros = [o for o in items if o["cat"] == it["cat"] and o["href"] != it["href"]][:2]
+    otros = [o for o in items if o["cat"] == it["cat"] and o["href"] != it["href"]][:3]
     if not otros or it["cat"] not in LABELS:
         return ""
     nombre, ver = LABELS[it["cat"]]
