@@ -31,4 +31,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add masvistas.json
           git commit -m "Más vistas: actualización"
+          git pull --rebase -q origin main
           git push
