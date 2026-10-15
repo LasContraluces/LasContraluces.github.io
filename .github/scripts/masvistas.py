@@ -105,7 +105,16 @@ def main():
     por_api = api_counts()
     if por_api is not None:
         print("Visitas leídas con la API de GoatCounter:", len(por_api), "páginas con visitas")
-    for it in reviews():
+    todas0 = reviews()
+    if por_api is None:
+        # Sin API: primero las páginas que aún no tienen contador guardado, así cada ejecución avanza
+        # un poco aunque GoatCounter corte conexiones; las que ya tenemos se refrescan al final.
+        todas0.sort(key=lambda x: x["href"] in previo)
+    inicio = time.time()
+    for it in todas0:
+        if time.time() - inicio > 600:
+            print("Pasados 10 minutos; se corta esta ejecución")
+            break
         if por_api is not None:
             n = por_api.get(it["href"], 0)
         else:
@@ -113,7 +122,7 @@ def main():
         if n is None:
             fallos_seguidos += 1
             n = previo.get(it["href"], 0)
-            if fallos_seguidos >= 3:
+            if fallos_seguidos >= 6:
                 print("GoatCounter rechaza las consultas; se corta esta ejecución")
                 break
         else:
@@ -122,7 +131,7 @@ def main():
         it["count"] = n
         res.append(it)
         if por_api is None:
-            time.sleep(1)
+            time.sleep(2)
     if ok == 0:
         print("No se pudo leer ninguna página; no toco masvistas.json")
         return
