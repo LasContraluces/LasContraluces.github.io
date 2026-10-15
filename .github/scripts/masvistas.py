@@ -46,20 +46,23 @@ def reviews():
 
 def views(path):
     url = "https://%s.goatcounter.com/counter/%s.json" % (CODE, urllib.parse.quote("/" + path, safe="/"))
-    req = urllib.request.Request(url, headers={"User-Agent": "lascontraluces.com masvistas"})
-    for intento in range(3):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (lascontraluces.com masvistas)"})
+    err = None
+    for espera in (0, 5, 15, 30):          # reintentos con pausa creciente (por si hay límite de peticiones)
+        time.sleep(espera)
         try:
             with urllib.request.urlopen(req, timeout=20) as r:
                 data = json.load(r)
             return int(re.sub(r"\D", "", str(data.get("count", "0"))) or 0)
         except urllib.error.HTTPError as e:
             if e.code == 404:
-                return 0          # todavía sin visitas
+                return 0                   # todavía sin visitas
+            err = "HTTP %s" % e.code
             if e.code == 403:
-                sys.exit("403: activa 'Allow adding visitor counts on your website' en GoatCounter")
-            time.sleep(2)
-        except Exception:
-            time.sleep(2)
+                break                      # ajuste de GoatCounter desactivado: no tiene sentido reintentar
+        except Exception as e:             # noqa: BLE001
+            err = str(e)
+    print("AVISO: no se pudo leer %s (%s)" % (path, err))
     return None
 
 
@@ -68,10 +71,13 @@ def main():
     for it in reviews():
         n = views(it["href"])
         if n is None:
-            sys.exit("No se pudo leer GoatCounter; no toco masvistas.json")
+            # Un fallo puntual no debe poner la Action en rojo ni falsear el ranking:
+            # se deja masvistas.json como está y se vuelve a intentar en la próxima ejecución.
+            print("No se pudo leer GoatCounter completo; no toco masvistas.json")
+            return
         it["count"] = n
         res.append(it)
-        time.sleep(0.3)
+        time.sleep(1)
     res.sort(key=lambda x: -x["count"])
     top = [x for x in res if x["count"] > 0][:TOP]
     OUT.write_text(json.dumps({"items": top}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
