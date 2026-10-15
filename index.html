@@ -840,36 +840,51 @@
 })();
 
 (function () {
+  // Últimas películas vistas en Letterboxd. Primero lee letterboxd.json (lo guarda una GitHub Action
+  // cada hora, .github/workflows/letterboxd.yml); si no hay datos, pide el RSS a rss2json como antes.
+  var hour = Math.floor(Date.now() / 3600000);
   var feedUrl = "https://letterboxd.com/remylebeau33/rss/";
   var jsonApi = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
 
-  fetch(jsonApi).then(function (r) { return r.json(); }).then(function (data) {
-    if (!data.items) return;
-    var films = data.items.filter(function (it) {
-      return it.link.indexOf("/film/") !== -1;
-    }).slice(0, 4);
-    if (!films.length) return;
-
+  function show(films) {
+    if (!films.length) return false;
     var container = document.getElementById("lb-posters");
-    films.forEach(function (it) {
-      var img = (it.description.match(/src="([^"]+)"/) || [])[1];
-      if (!img) return;
-
+    films.forEach(function (f) {
       var wrap = document.createElement("a");
-      wrap.href = it.link;
+      wrap.href = f.url;
       wrap.target = "_blank";
       wrap.rel = "noopener";
-      wrap.title = it.title;
+      wrap.title = f.title;
 
       var im = document.createElement("img");
-      im.src = img;
-      im.alt = it.title;
+      im.src = f.poster;
+      im.alt = f.title;
       im.loading = "lazy";
       wrap.appendChild(im);
 
       container.appendChild(wrap);
     });
     document.getElementById("lb-widget").style.display = "block";
+    return true;
+  }
+
+  function fromRss() {
+    return fetch(jsonApi).then(function (r) { return r.json(); }).then(function (data) {
+      if (!data.items) return;
+      var films = [];
+      data.items.forEach(function (it) {
+        if (films.length >= 4 || it.link.indexOf("/film/") === -1) return;
+        var img = (it.description.match(/src="([^"]+)"/) || [])[1];
+        if (img) films.push({ url: it.link, title: it.title, poster: img });
+      });
+      show(films);
+    });
+  }
+
+  fetch("letterboxd.json?h=" + hour).then(function (r) { return r.json(); }).then(function (data) {
+    if (!show((data.items || []).slice(0, 4))) return fromRss();
+  }).catch(function () {
+    return fromRss();
   }).catch(function () { /* si todo falla, el módulo se queda oculto sin más */ });
 })();
 
