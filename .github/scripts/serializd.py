@@ -69,7 +69,8 @@ def pick(diary):
         if season:
             url += f"/season/{season['id']}/{season['seasonNumber']}"
             # Para miniseries no tiene sentido poner "T1"
-            if (season.get("name") or "").lower().startswith("season"):
+            # Las series británicas llaman "Series 3" a la temporada 3 (Luther, por ejemplo)
+            if re.match(r"(season|series|temporada|serie)\s*\d+", (season.get("name") or "").lower()):
                 title = f"{name} · T{season['seasonNumber']}"
 
         items.append({
