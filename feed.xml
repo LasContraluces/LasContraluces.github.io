@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Normal (2025)</title>
+    <link>https://lascontraluces.com/reviews/normal.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/normal.html</guid>
+    <category>Cine</category>
+    <description>Violencia absurda para pasar un buen rato</description>
+  </item>
+  <item>
     <title>El final de Oak Street (2026)</title>
     <link>https://lascontraluces.com/reviews/el-final-de-oak-street.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/el-final-de-oak-street.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/the-running-man.html</guid>
     <category>Cine</category>
     <description>Acción de las de antes, hasta que llega el final</description>
-  </item>
-  <item>
-    <title>Superman (2025)</title>
-    <link>https://lascontraluces.com/reviews/superman.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/superman.html</guid>
-    <category>Cine</category>
-    <description>Un cómic en movimiento, y el mejor Superman desde Richard Donner</description>
   </item>
 </channel>
 </rss>
