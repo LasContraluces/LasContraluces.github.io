@@ -894,8 +894,8 @@
 })();
 
 (function () {
-  // Reseñas más vistas. Una GitHub Action (.github/workflows/masvistas.yml) lee las visitas en GoatCounter
-  // y guarda el top en masvistas.json; la portada solo lo lee (una petición, igual en móvil y en escritorio).
+  // Reseñas más vistas. Pinta al momento masvistas.json (lo mantiene .github/workflows/masvistas.yml) y después
+  // pide a GoatCounter las visitas reales de cada reseña (contadores públicos); caché de 15 min si la lectura sale completa.
   var widget = document.getElementById("mv-widget");
   var list = document.getElementById("mv-list");
   if (!widget || !list) return;
@@ -927,10 +927,71 @@
     widget.style.display = "block";
   }
 
+  var KEY = "lc-masvistas-v2", TTL = 900000;   // 15 min
   var hour = Math.floor(Date.now() / 3600000);
-  fetch("masvistas.json?h=" + hour).then(function (r) { return r.json(); }).then(function (data) {
-    render(data.items || []);
-  }).catch(function () { /* si falla, el módulo se queda oculto sin más */ });
+
+  // 1) Pintado inmediato: caché reciente o, si no hay, el último masvistas.json
+  var fresh = false;
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (saved && saved.items && Date.now() - saved.t < TTL) { render(saved.items); fresh = true; }
+  } catch (e) { /* sin almacenamiento */ }
+  if (fresh) return;
+  fetch("masvistas.json?h=" + hour).then(function (r) { return r.json(); }).then(function (d) {
+    render(d.items || []);
+  }).catch(function () {});
+
+  // 2) Visitas en vivo desde GoatCounter, con tiempo límite por petición (en móvil una petición colgada bloqueaba todo)
+  var seen = {}, reviews = [];
+  document.querySelectorAll("ul.review-list li, ul.featured li").forEach(function (li) {
+    var a = li.querySelector('a[href^="reviews/"]');
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (seen[href]) return;
+    seen[href] = 1;
+    var title = li.querySelector(".title");
+    if (!title) return;
+    var c = title.cloneNode(true);
+    c.querySelectorAll(".cat-tag, .year").forEach(function (n) { n.remove(); });
+    var y = title.querySelector(".year");
+    var m = (li.className || "").match(/cat-(\w+)/);
+    reviews.push({ href: href, cat: m ? m[1] : "", name: c.textContent.trim(), year: y ? y.textContent.trim() : "", count: 0 });
+  });
+  if (!reviews.length) return;
+
+  var ok = 0;
+  function visitas(r) {
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+    return fetch("https://lascontraluces.goatcounter.com/counter//" + r.href + ".json", ctl ? { signal: ctl.signal } : {})
+      .then(function (res) {
+        if (res.status === 404) return { count: "0", ok: true };
+        if (!res.ok) throw new Error("http");
+        return res.json().then(function (d) { d.ok = true; return d; });
+      })
+      .then(function (d) { ok++; r.count = parseInt(String(d.count || "0").replace(/\D/g, ""), 10) || 0; })
+      .catch(function () { /* esa reseña cuenta 0 esta vez */ })
+      .then(function () { clearTimeout(timer); });
+  }
+
+  var next = 0, activos = 0, hechos = 0;
+  function lanzar() {
+    while (activos < 6 && next < reviews.length) {
+      activos++;
+      visitas(reviews[next++]).then(function () {
+        activos--; hechos++;
+        if (hechos === reviews.length) {
+          if (ok < reviews.length * 0.9) return;   // lectura incompleta: se queda lo ya pintado
+          var top = reviews.slice().sort(function (p, q) { return q.count - p.count; }).slice(0, 5);
+          render(top);
+          try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), items: top })); } catch (e) {}
+        } else {
+          lanzar();
+        }
+      });
+    }
+  }
+  lanzar();
 })();
 
 (function () {
