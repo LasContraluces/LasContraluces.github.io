@@ -1,6 +1,8 @@
 name: Más vistas (GoatCounter)
 
 on:
+  schedule:
+    - cron: "37 */3 * * *"   # cada 3 horas, al minuto 37
   workflow_dispatch:          # botón "Run workflow" para lanzarlo a mano
 
 permissions:

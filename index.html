@@ -894,9 +894,8 @@
 })();
 
 (function () {
-  // Reseñas más vistas. Cada navegador pide a GoatCounter las visitas de cada reseña (contadores públicos),
-  // calcula el top 5 y lo guarda una hora en localStorage para no repetir peticiones.
-  var KEY = "lc-masvistas-v1", TTL = 3600000;
+  // Reseñas más vistas. Una GitHub Action (.github/workflows/masvistas.yml) lee las visitas en GoatCounter
+  // y guarda el top en masvistas.json; la portada solo lo lee (una petición, igual en móvil y en escritorio).
   var widget = document.getElementById("mv-widget");
   var list = document.getElementById("mv-list");
   if (!widget || !list) return;
@@ -928,54 +927,10 @@
     widget.style.display = "block";
   }
 
-  try {
-    var saved = JSON.parse(localStorage.getItem(KEY) || "null");
-    if (saved && saved.items) {
-      render(saved.items);
-      if (Date.now() - saved.t < TTL) return;
-    }
-  } catch (e) { /* sin almacenamiento: se pide siempre */ }
-
-  var seen = {}, reviews = [];
-  document.querySelectorAll("ul.review-list li, ul.featured li").forEach(function (li) {
-    var a = li.querySelector('a[href^="reviews/"]');
-    if (!a) return;
-    var href = a.getAttribute("href");
-    if (seen[href]) return;
-    seen[href] = 1;
-    var title = li.querySelector(".title");
-    if (!title) return;
-    var c = title.cloneNode(true);
-    c.querySelectorAll(".cat-tag, .year").forEach(function (n) { n.remove(); });
-    var y = title.querySelector(".year");
-    var m = (li.className || "").match(/cat-(\w+)/);
-    reviews.push({ href: href, cat: m ? m[1] : "", name: c.textContent.trim(), year: y ? y.textContent.trim() : "", count: 0 });
-  });
-
-  function visitas(r) {
-    return fetch("https://lascontraluces.goatcounter.com/counter//" + r.href + ".json")
-      .then(function (res) { return res.ok ? res.json() : { count: "0" }; })
-      .then(function (d) { r.count = parseInt(String(d.count || "0").replace(/\D/g, ""), 10) || 0; })
-      .catch(function () { /* esa reseña cuenta 0 esta vez */ });
-  }
-
-  var next = 0, activos = 0, hechos = 0;
-  function lanzar() {
-    while (activos < 6 && next < reviews.length) {
-      activos++;
-      visitas(reviews[next++]).then(function () {
-        activos--; hechos++;
-        if (hechos === reviews.length) {
-          var top = reviews.slice().sort(function (p, q) { return q.count - p.count; }).slice(0, 5);
-          render(top);
-          try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), items: top })); } catch (e) {}
-        } else {
-          lanzar();
-        }
-      });
-    }
-  }
-  lanzar();
+  var hour = Math.floor(Date.now() / 3600000);
+  fetch("masvistas.json?h=" + hour).then(function (r) { return r.json(); }).then(function (data) {
+    render(data.items || []);
+  }).catch(function () { /* si falla, el módulo se queda oculto sin más */ });
 })();
 
 (function () {
