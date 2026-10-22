@@ -1,6 +1,12 @@
 {
   "items": [
     {
+      "title": "Last Seen · T1",
+      "url": "https://www.serializd.com/show/Last-Seen-258230/season/400492/1",
+      "poster": "https://image.tmdb.org/t/p/w185/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
+      "rating": 7
+    },
+    {
       "title": "Brooklyn Nine-Nine · T6",
       "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/114567/6",
       "poster": "https://image.tmdb.org/t/p/w185/xa9xA4Ieju9cyVkfJ47n1hnbHWB.jpg",
@@ -17,12 +23,6 @@
       "url": "https://www.serializd.com/show/Below-285322/season/444323/1",
       "poster": "https://image.tmdb.org/t/p/w185/qadm9To9UfMVenVzGVLt0m0iuxv.jpg",
       "rating": 6
-    },
-    {
-      "title": "East of Eden",
-      "url": "https://www.serializd.com/show/East-of-Eden-258165",
-      "poster": "https://image.tmdb.org/t/p/w185/axdUor6gLMTrrB1UF4Qfy0TTSyX.jpg",
-      "rating": 8
     }
   ]
 }
