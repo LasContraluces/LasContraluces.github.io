@@ -30,9 +30,9 @@
   },
   {
    "cat": "series",
-   "href": "reviews/castle.html",
-   "name": "Castle",
-   "year": "(2009-2016)",
+   "href": "reviews/la-lista-final.html",
+   "name": "La lista final — T1",
+   "year": "(2022)",
    "count": 5
   }
  ],
@@ -51,7 +51,7 @@
   "reviews/el-juego-del-calamar.html": 2,
   "reviews/el-final-de-oak-street.html": 3,
   "reviews/the-corruptor.html": 2,
-  "reviews/la-lista-final.html": 3,
+  "reviews/la-lista-final.html": 5,
   "reviews/castle.html": 5,
   "reviews/sandman.html": 8,
   "reviews/thunderbolts.html": 6,
