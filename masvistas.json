@@ -22,18 +22,18 @@
    "count": 7
   },
   {
+   "cat": "series",
+   "href": "reviews/la-lista-final.html",
+   "name": "La lista final — T1",
+   "year": "(2022)",
+   "count": 6
+  },
+  {
    "cat": "cine",
    "href": "reviews/thunderbolts.html",
    "name": "Thunderbolts*",
    "year": "(2025)",
    "count": 6
-  },
-  {
-   "cat": "series",
-   "href": "reviews/la-lista-final.html",
-   "name": "La lista final — T1",
-   "year": "(2022)",
-   "count": 5
   }
  ],
  "counts": {
@@ -51,7 +51,7 @@
   "reviews/el-juego-del-calamar.html": 2,
   "reviews/el-final-de-oak-street.html": 3,
   "reviews/the-corruptor.html": 2,
-  "reviews/la-lista-final.html": 5,
+  "reviews/la-lista-final.html": 6,
   "reviews/castle.html": 5,
   "reviews/sandman.html": 8,
   "reviews/thunderbolts.html": 6,
