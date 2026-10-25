@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Siete años en el Tíbet (1997)</title>
+    <link>https://lascontraluces.com/reviews/siete-anos-en-el-tibet.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/siete-anos-en-el-tibet.html</guid>
+    <category>Cine</category>
+    <description>Una película a la que siempre vuelvo</description>
+  </item>
+  <item>
     <title>Code 3 (2025)</title>
     <link>https://lascontraluces.com/reviews/code-3.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/code-3.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/gran-turismo.html</guid>
     <category>Cine</category>
     <description>Mucha velocidad y muy poca conexión con quien va al volante</description>
-  </item>
-  <item>
-    <title>Falsas apariencias (2000)</title>
-    <link>https://lascontraluces.com/reviews/falsas-apariencias.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/falsas-apariencias.html</guid>
-    <category>Cine</category>
-    <description>Da un poco de pena verla hoy, pero todavía hace gracia</description>
   </item>
 </channel>
 </rss>
