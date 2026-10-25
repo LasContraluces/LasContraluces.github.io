@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Code 3 (2025)</title>
+    <link>https://lascontraluces.com/reviews/code-3.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/code-3.html</guid>
+    <category>Cine</category>
+    <description>Mucho más que una comedia con Rainn Wilson</description>
+  </item>
+  <item>
     <title>Matchbox: la película (2026)</title>
     <link>https://lascontraluces.com/reviews/matchbox-la-pelicula.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/matchbox-la-pelicula.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/falsas-apariencias.html</guid>
     <category>Cine</category>
     <description>Da un poco de pena verla hoy, pero todavía hace gracia</description>
-  </item>
-  <item>
-    <title>F1 (2025)</title>
-    <link>https://lascontraluces.com/reviews/f1.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/f1.html</guid>
-    <category>Cine</category>
-    <description>La Fórmula 1 real nunca fue tan emocionante como esto</description>
   </item>
 </channel>
 </rss>
