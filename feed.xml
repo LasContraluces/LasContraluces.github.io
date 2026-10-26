@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>La bola negra (2026)</title>
+    <link>https://lascontraluces.com/reviews/la-bola-negra.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/la-bola-negra.html</guid>
+    <category>Cine</category>
+    <description>«Habla de lo que perdemos cuando nos negamos»</description>
+  </item>
+  <item>
     <title>Siete años en el Tíbet (1997)</title>
     <link>https://lascontraluces.com/reviews/siete-anos-en-el-tibet.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/siete-anos-en-el-tibet.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/el-negociador.html</guid>
     <category>Cine</category>
     <description>Un thriller de los noventa que todavía aguanta el tipo</description>
-  </item>
-  <item>
-    <title>Gran Turismo (2023)</title>
-    <link>https://lascontraluces.com/reviews/gran-turismo.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/gran-turismo.html</guid>
-    <category>Cine</category>
-    <description>Mucha velocidad y muy poca conexión con quien va al volante</description>
   </item>
 </channel>
 </rss>
