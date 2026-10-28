@@ -1,6 +1,12 @@
 {
   "items": [
     {
+      "title": "The Terminal List · T2",
+      "url": "https://www.serializd.com/show/The-Terminal-List-120911/season/516049/2",
+      "poster": "https://image.tmdb.org/t/p/w185/xyFAzP7RKK8cARCSalIZ9A9T0jV.jpg",
+      "rating": 7
+    },
+    {
       "title": "Slow Horses · T6",
       "url": "https://www.serializd.com/show/Slow-Horses-95480/season/521992/6",
       "poster": "https://image.tmdb.org/t/p/w185/w2jauz2PeSjFQifDObI3qDen4f7.jpg",
@@ -17,12 +23,6 @@
       "url": "https://www.serializd.com/show/Brooklyn-Nine-Nine-48891/season/114567/6",
       "poster": "https://image.tmdb.org/t/p/w185/xa9xA4Ieju9cyVkfJ47n1hnbHWB.jpg",
       "rating": 9
-    },
-    {
-      "title": "Luther · T5",
-      "url": "https://www.serializd.com/show/Luther-1426/season/113142/5",
-      "poster": "https://image.tmdb.org/t/p/w185/s2yfksAmshAPtjxEOvy1iGGSdWr.jpg",
-      "rating": 7
     }
   ]
 }
