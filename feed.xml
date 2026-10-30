@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Cadena perpetua (1994)</title>
+    <link>https://lascontraluces.com/reviews/cadena-perpetua.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/cadena-perpetua.html</guid>
+    <category>Cine</category>
+    <description>Una película que encontró a su público con el paso del tiempo</description>
+  </item>
+  <item>
     <title>La bola negra (2026)</title>
     <link>https://lascontraluces.com/reviews/la-bola-negra.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/la-bola-negra.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/deja-vu.html</guid>
     <category>Cine</category>
     <description>El déjà vu que nunca tuviste</description>
-  </item>
-  <item>
-    <title>El Negociador (1998)</title>
-    <link>https://lascontraluces.com/reviews/el-negociador.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/el-negociador.html</guid>
-    <category>Cine</category>
-    <description>Un thriller de los noventa que todavía aguanta el tipo</description>
   </item>
 </channel>
 </rss>
