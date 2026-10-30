@@ -1,17 +1,17 @@
 {
  "items": [
   {
-   "cat": "series",
-   "href": "reviews/sandman.html",
-   "name": "Sandman",
-   "year": "(2022-2025)",
-   "count": 9
-  },
-  {
    "cat": "cine",
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
+   "count": 10
+  },
+  {
+   "cat": "series",
+   "href": "reviews/sandman.html",
+   "name": "Sandman",
+   "year": "(2022-2025)",
    "count": 9
   },
   {
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 9,
+  "reviews/the-furious.html": 10,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
