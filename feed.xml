@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Hacksaw Ridge (2016)</title>
+    <link>https://lascontraluces.com/reviews/hacksaw-ridge.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/hacksaw-ridge.html</guid>
+    <category>Cine</category>
+    <description>Un hombre que se negó a empuñar un arma</description>
+  </item>
+  <item>
     <title>Cadena perpetua (1994)</title>
     <link>https://lascontraluces.com/reviews/cadena-perpetua.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/cadena-perpetua.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/el-reino-del-planeta-de-los-simios.html</guid>
     <category>Cine</category>
     <description>Si hay que elegir bando, aquí no tengo ninguna duda</description>
-  </item>
-  <item>
-    <title>Déjà Vu (2006)</title>
-    <link>https://lascontraluces.com/reviews/deja-vu.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/deja-vu.html</guid>
-    <category>Cine</category>
-    <description>El déjà vu que nunca tuviste</description>
   </item>
 </channel>
 </rss>
