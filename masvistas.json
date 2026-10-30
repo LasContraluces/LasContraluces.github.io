@@ -5,7 +5,7 @@
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
-   "count": 10
+   "count": 11
   },
   {
    "cat": "series",
@@ -29,10 +29,10 @@
    "count": 7
   },
   {
-   "cat": "series",
-   "href": "reviews/bosch-legacy.html",
-   "name": "Bosch: Legacy",
-   "year": "(2022-2025)",
+   "cat": "cine",
+   "href": "reviews/los-demonios-de-la-noche.html",
+   "name": "Los demonios de la noche",
+   "year": "(1996)",
    "count": 6
   }
  ],
@@ -44,7 +44,7 @@
   "reviews/lanterns-t1.html": 0,
   "reviews/the-gentlemen-t2.html": 3,
   "reviews/waterworld.html": 1,
-  "reviews/los-demonios-de-la-noche.html": 5,
+  "reviews/los-demonios-de-la-noche.html": 6,
   "reviews/camp-miasma.html": 5,
   "reviews/bosch-legacy.html": 6,
   "reviews/ballard.html": 5,
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 10,
+  "reviews/the-furious.html": 11,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
@@ -105,6 +105,9 @@
   "reviews/normal.html": 0,
   "reviews/siete-anos-en-el-tibet.html": 0,
   "reviews/code-3.html": 0,
-  "reviews/la-bola-negra.html": 0
+  "reviews/la-bola-negra.html": 0,
+  "reviews/la-constelacion-del-perro.html": 0,
+  "reviews/hacksaw-ridge.html": 0,
+  "reviews/cadena-perpetua.html": 0
  }
 }
