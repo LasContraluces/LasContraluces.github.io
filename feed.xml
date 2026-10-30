@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>La constelación del perro (2026)</title>
+    <link>https://lascontraluces.com/reviews/la-constelacion-del-perro.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/la-constelacion-del-perro.html</guid>
+    <category>Cine</category>
+    <description>El fin del mundo y otra película fallida de Ridley Scott</description>
+  </item>
+  <item>
     <title>Hasta el último hombre (2016)</title>
     <link>https://lascontraluces.com/reviews/hacksaw-ridge.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/hacksaw-ridge.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/resurrection.html</guid>
     <category>Cine</category>
     <description>Cuando el sueño se filma como si fuera cine mudo</description>
-  </item>
-  <item>
-    <title>El reino del planeta de los simios (2024)</title>
-    <link>https://lascontraluces.com/reviews/el-reino-del-planeta-de-los-simios.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/el-reino-del-planeta-de-los-simios.html</guid>
-    <category>Cine</category>
-    <description>Si hay que elegir bando, aquí no tengo ninguna duda</description>
   </item>
 </channel>
 </rss>
