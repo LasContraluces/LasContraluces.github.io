@@ -28,6 +28,16 @@ TOP_FILE = ".github/scripts/top.json"
 NOTAS = json.load(open(NOTAS_FILE, encoding="utf-8")) if os.path.exists(NOTAS_FILE) else {}
 TOP = json.load(open(TOP_FILE, encoding="utf-8")) if os.path.exists(TOP_FILE) else []
 
+# Reseñas nuevas que aún no están en notas.json: se usa la nota que ya lleva su página
+# (así entran en el top sin tener que acordarse de apuntarla en notas.json).
+for _f in glob.glob("reviews/*.html"):
+    _slug = os.path.basename(_f)[:-5]
+    if _slug in NOTAS:
+        continue
+    _m = re.search(r'<span class="nota"[^>]*>([\d.,]+)<small>', open(_f, encoding="utf-8").read())
+    if _m:
+        NOTAS[_slug] = float(_m.group(1).replace(",", "."))
+
 
 def git(*args):
     r = subprocess.run(["git"] + list(args), capture_output=True, text=True)
