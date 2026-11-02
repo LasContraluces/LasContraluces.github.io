@@ -5,7 +5,7 @@
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
-   "count": 10
+   "count": 12
   },
   {
    "cat": "series",
@@ -13,6 +13,13 @@
    "name": "Sandman",
    "year": "(2022-2025)",
    "count": 9
+  },
+  {
+   "cat": "series",
+   "href": "reviews/the-gentlemen-t2.html",
+   "name": "The Gentlemen — T2",
+   "year": "(2026)",
+   "count": 8
   },
   {
    "cat": "cine",
@@ -27,13 +34,6 @@
    "name": "Los Cuatro Fantásticos: Primeros Pasos",
    "year": "(2025)",
    "count": 7
-  },
-  {
-   "cat": "series",
-   "href": "reviews/bosch-legacy.html",
-   "name": "Bosch: Legacy",
-   "year": "(2022-2025)",
-   "count": 6
   }
  ],
  "counts": {
@@ -42,9 +42,9 @@
   "reviews/un-profeta.html": 0,
   "reviews/un-hombre-lobo-americano-en-londres.html": 0,
   "reviews/lanterns-t1.html": 0,
-  "reviews/the-gentlemen-t2.html": 3,
-  "reviews/waterworld.html": 1,
-  "reviews/los-demonios-de-la-noche.html": 5,
+  "reviews/the-gentlemen-t2.html": 8,
+  "reviews/waterworld.html": 4,
+  "reviews/los-demonios-de-la-noche.html": 6,
   "reviews/camp-miasma.html": 5,
   "reviews/bosch-legacy.html": 6,
   "reviews/ballard.html": 5,
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 10,
+  "reviews/the-furious.html": 12,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
@@ -105,6 +105,9 @@
   "reviews/normal.html": 0,
   "reviews/siete-anos-en-el-tibet.html": 0,
   "reviews/code-3.html": 0,
-  "reviews/la-bola-negra.html": 0
+  "reviews/la-bola-negra.html": 0,
+  "reviews/la-constelacion-del-perro.html": 0,
+  "reviews/hacksaw-ridge.html": 0,
+  "reviews/cadena-perpetua.html": 0
  }
 }
