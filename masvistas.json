@@ -5,7 +5,14 @@
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
-   "count": 12
+   "count": 14
+  },
+  {
+   "cat": "series",
+   "href": "reviews/the-gentlemen-t2.html",
+   "name": "The Gentlemen — T2",
+   "year": "(2026)",
+   "count": 9
   },
   {
    "cat": "series",
@@ -13,13 +20,6 @@
    "name": "Sandman",
    "year": "(2022-2025)",
    "count": 9
-  },
-  {
-   "cat": "series",
-   "href": "reviews/the-gentlemen-t2.html",
-   "name": "The Gentlemen — T2",
-   "year": "(2026)",
-   "count": 8
   },
   {
    "cat": "cine",
@@ -37,19 +37,19 @@
   }
  ],
  "counts": {
-  "reviews/la-muerte-de-robin-hood.html": 2,
-  "reviews/soldier.html": 2,
-  "reviews/un-profeta.html": 0,
-  "reviews/un-hombre-lobo-americano-en-londres.html": 0,
-  "reviews/lanterns-t1.html": 0,
-  "reviews/the-gentlemen-t2.html": 8,
+  "reviews/la-muerte-de-robin-hood.html": 3,
+  "reviews/soldier.html": 3,
+  "reviews/un-profeta.html": 1,
+  "reviews/un-hombre-lobo-americano-en-londres.html": 1,
+  "reviews/lanterns-t1.html": 2,
+  "reviews/the-gentlemen-t2.html": 9,
   "reviews/waterworld.html": 4,
   "reviews/los-demonios-de-la-noche.html": 6,
   "reviews/camp-miasma.html": 5,
   "reviews/bosch-legacy.html": 6,
   "reviews/ballard.html": 5,
   "reviews/el-juego-del-calamar.html": 5,
-  "reviews/el-final-de-oak-street.html": 3,
+  "reviews/el-final-de-oak-street.html": 4,
   "reviews/the-corruptor.html": 5,
   "reviews/la-lista-final.html": 6,
   "reviews/castle.html": 5,
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 12,
+  "reviews/the-furious.html": 14,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
@@ -108,6 +108,8 @@
   "reviews/la-bola-negra.html": 0,
   "reviews/la-constelacion-del-perro.html": 0,
   "reviews/hacksaw-ridge.html": 0,
-  "reviews/cadena-perpetua.html": 0
+  "reviews/cadena-perpetua.html": 0,
+  "reviews/street-fighter-la-ultima-batalla.html": 0,
+  "reviews/asalto-al-tren-del-dinero.html": 0
  }
 }
