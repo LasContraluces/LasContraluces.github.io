@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Asalto al tren del dinero (1995)</title>
+    <link>https://lascontraluces.com/reviews/asalto-al-tren-del-dinero.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/asalto-al-tren-del-dinero.html</guid>
+    <category>Cine</category>
+    <description>Snipes y Harrelson vuelven a juntarse, esta vez en el metro de Nueva York</description>
+  </item>
+  <item>
     <title>La constelación del perro (2026)</title>
     <link>https://lascontraluces.com/reviews/la-constelacion-del-perro.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/la-constelacion-del-perro.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/el-dia-de-manana.html</guid>
     <category>Cine</category>
     <description>El apocalipsis climático de Emmerich, disfrutable en modo sofá y manta</description>
-  </item>
-  <item>
-    <title>Resurrection (2025)</title>
-    <link>https://lascontraluces.com/reviews/resurrection.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/resurrection.html</guid>
-    <category>Cine</category>
-    <description>Cuando el sueño se filma como si fuera cine mudo</description>
   </item>
 </channel>
 </rss>
