@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Street Fighter: La última batalla (1994)</title>
+    <link>https://lascontraluces.com/reviews/street-fighter-la-ultima-batalla.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/street-fighter-la-ultima-batalla.html</guid>
+    <category>Cine</category>
+    <description>Mucho puñetazo, poco videojuego y bastante disparate</description>
+  </item>
+  <item>
     <title>Asalto al tren del dinero (1995)</title>
     <link>https://lascontraluces.com/reviews/asalto-al-tren-del-dinero.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/asalto-al-tren-del-dinero.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/los-cuatro-fantasticos-primeros-pasos.html</guid>
     <category>Cine</category>
     <description>Presenta a los cuatro, pero se la queda Silver Surfer</description>
-  </item>
-  <item>
-    <title>El día de mañana (2004)</title>
-    <link>https://lascontraluces.com/reviews/el-dia-de-manana.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/el-dia-de-manana.html</guid>
-    <category>Cine</category>
-    <description>El apocalipsis climático de Emmerich, disfrutable en modo sofá y manta</description>
   </item>
 </channel>
 </rss>
