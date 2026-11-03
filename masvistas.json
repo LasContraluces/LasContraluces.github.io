@@ -5,7 +5,7 @@
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
-   "count": 17
+   "count": 20
   },
   {
    "cat": "series",
@@ -30,9 +30,9 @@
   },
   {
    "cat": "cine",
-   "href": "reviews/los-demonios-de-la-noche.html",
-   "name": "Los demonios de la noche",
-   "year": "(1996)",
+   "href": "reviews/un-hombre-lobo-americano-en-londres.html",
+   "name": "Un hombre lobo americano en Londres",
+   "year": "(1981)",
    "count": 7
   }
  ],
@@ -40,7 +40,7 @@
   "reviews/la-muerte-de-robin-hood.html": 3,
   "reviews/soldier.html": 4,
   "reviews/un-profeta.html": 1,
-  "reviews/un-hombre-lobo-americano-en-londres.html": 4,
+  "reviews/un-hombre-lobo-americano-en-londres.html": 7,
   "reviews/lanterns-t1.html": 3,
   "reviews/the-gentlemen-t2.html": 9,
   "reviews/waterworld.html": 4,
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 17,
+  "reviews/the-furious.html": 20,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
