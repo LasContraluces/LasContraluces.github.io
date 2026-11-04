@@ -8,6 +8,13 @@
    "count": 20
   },
   {
+   "cat": "cine",
+   "href": "reviews/un-hombre-lobo-americano-en-londres.html",
+   "name": "Un hombre lobo americano en Londres",
+   "year": "(1981)",
+   "count": 9
+  },
+  {
    "cat": "series",
    "href": "reviews/the-gentlemen-t2.html",
    "name": "The Gentlemen — T2",
@@ -27,20 +34,13 @@
    "name": "Confidencial (Black Bag)",
    "year": "(2025)",
    "count": 8
-  },
-  {
-   "cat": "cine",
-   "href": "reviews/un-hombre-lobo-americano-en-londres.html",
-   "name": "Un hombre lobo americano en Londres",
-   "year": "(1981)",
-   "count": 7
   }
  ],
  "counts": {
   "reviews/la-muerte-de-robin-hood.html": 3,
   "reviews/soldier.html": 4,
-  "reviews/un-profeta.html": 1,
-  "reviews/un-hombre-lobo-americano-en-londres.html": 7,
+  "reviews/un-profeta.html": 5,
+  "reviews/un-hombre-lobo-americano-en-londres.html": 9,
   "reviews/lanterns-t1.html": 3,
   "reviews/the-gentlemen-t2.html": 9,
   "reviews/waterworld.html": 4,
