@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Wildwood: El bosque salvaje (2026)</title>
+    <link>https://lascontraluces.com/reviews/wildwood-el-bosque-salvaje.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/wildwood-el-bosque-salvaje.html</guid>
+    <category>Cine</category>
+    <description>Laika vuelve a demostrar de lo que es capaz</description>
+  </item>
+  <item>
     <title>Street Fighter: La última batalla (1994)</title>
     <link>https://lascontraluces.com/reviews/street-fighter-la-ultima-batalla.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/street-fighter-la-ultima-batalla.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/confidencial-black-bag.html</guid>
     <category>Cine</category>
     <description>Teatro llevado al cine, con un Fassbender magnético</description>
-  </item>
-  <item>
-    <title>Los Cuatro Fantásticos: Primeros Pasos (2025)</title>
-    <link>https://lascontraluces.com/reviews/los-cuatro-fantasticos-primeros-pasos.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/los-cuatro-fantasticos-primeros-pasos.html</guid>
-    <category>Cine</category>
-    <description>Presenta a los cuatro, pero se la queda Silver Surfer</description>
   </item>
 </channel>
 </rss>
