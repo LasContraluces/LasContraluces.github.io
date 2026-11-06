@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Blade Runner (1982)</title>
+    <link>https://lascontraluces.com/reviews/blade-runner.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/blade-runner.html</guid>
+    <category>Cine</category>
+    <description>Una de las grandes películas de cine negro y ciencia ficción</description>
+  </item>
+  <item>
     <title>Wildwood: El bosque salvaje (2026)</title>
     <link>https://lascontraluces.com/reviews/wildwood-el-bosque-salvaje.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/wildwood-el-bosque-salvaje.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/thunderbolts.html</guid>
     <category>Cine</category>
     <description>Un grupo de perdedores buscando su sitio</description>
-  </item>
-  <item>
-    <title>Confidencial (Black Bag) (2025)</title>
-    <link>https://lascontraluces.com/reviews/confidencial-black-bag.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/confidencial-black-bag.html</guid>
-    <category>Cine</category>
-    <description>Teatro llevado al cine, con un Fassbender magnético</description>
   </item>
 </channel>
 </rss>
