@@ -5,7 +5,14 @@
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
-   "count": 23
+   "count": 25
+  },
+  {
+   "cat": "cine",
+   "href": "reviews/la-muerte-de-robin-hood.html",
+   "name": "La muerte de Robin Hood",
+   "year": "(2026)",
+   "count": 9
   },
   {
    "cat": "cine",
@@ -27,18 +34,11 @@
    "name": "Sandman",
    "year": "(2022-2025)",
    "count": 9
-  },
-  {
-   "cat": "cine",
-   "href": "reviews/confidencial-black-bag.html",
-   "name": "Confidencial (Black Bag)",
-   "year": "(2025)",
-   "count": 8
   }
  ],
  "counts": {
-  "reviews/la-muerte-de-robin-hood.html": 6,
-  "reviews/soldier.html": 5,
+  "reviews/la-muerte-de-robin-hood.html": 9,
+  "reviews/soldier.html": 6,
   "reviews/un-profeta.html": 6,
   "reviews/un-hombre-lobo-americano-en-londres.html": 9,
   "reviews/lanterns-t1.html": 3,
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 23,
+  "reviews/the-furious.html": 25,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
@@ -96,7 +96,7 @@
   "reviews/bosch.html": 0,
   "reviews/mobland.html": 0,
   "reviews/teniente-corrupto.html": 0,
-  "reviews/master-commander.html": 2,
+  "reviews/master-commander.html": 3,
   "reviews/sinners.html": 0,
   "reviews/el-imperio-del-vampiro.html": 1,
   "reviews/slow-horses-t5.html": 0,
