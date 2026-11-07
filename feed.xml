@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Blade Runner 2049 (2017)</title>
+    <link>https://lascontraluces.com/reviews/blade-runner-2049.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/blade-runner-2049.html</guid>
+    <category>Cine</category>
+    <description>Volver a ese futuro treinta años después</description>
+  </item>
+  <item>
     <title>Blade Runner (1982)</title>
     <link>https://lascontraluces.com/reviews/blade-runner.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/blade-runner.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/sandman.html</guid>
     <category>Series</category>
     <description>Un sueño, o una pesadilla</description>
-  </item>
-  <item>
-    <title>Thunderbolts* (2025)</title>
-    <link>https://lascontraluces.com/reviews/thunderbolts.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/thunderbolts.html</guid>
-    <category>Cine</category>
-    <description>Un grupo de perdedores buscando su sitio</description>
   </item>
 </channel>
 </rss>
