@@ -830,11 +830,19 @@
     var episodes = data.results.filter(function (r) { return r.wrapperType === "podcastEpisode"; }).slice(0, 4);
     if (!episodes.length) return;
 
+    // Enlace directo a cada episodio en iVoox (clave: número de episodio del título). Si falta, va a la página del podcast.
+    var ivooxEps = {
+      "4x02": "https://go.ivoox.com/rf/183518031",
+      "4x01": "https://go.ivoox.com/rf/182388172",
+      "3x04": "https://go.ivoox.com/rf/172683142",
+      "3x03": "https://go.ivoox.com/rf/170822808"
+    };
     var list = document.getElementById("ep-list");
     episodes.forEach(function (ep) {
       var li = document.createElement("li");
       var a = document.createElement("a");
-      a.href = "https://go.ivoox.com/sq/2373042";
+      var num = (ep.trackName.match(/\d+x\d+/i) || [""])[0].toLowerCase();
+      a.href = ivooxEps[num] || "https://go.ivoox.com/sq/2373042";
       a.target = "_blank";
       a.rel = "noopener";
 
