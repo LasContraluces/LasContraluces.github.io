@@ -9,7 +9,7 @@
   --c-cine: #d9a441;
   --c-series: #6a9c93;
   --c-libros: #b5564b;
-  --c-juegos: #8c9a5a;
+  --c-juegos: #9a7bb5;
 }
 
 * { box-sizing: border-box; }
@@ -280,7 +280,7 @@ ul.review-list a.row {
 ul.review-list li.cat-cine a.row:hover { border-left-color: var(--c-cine); background: rgba(217,164,65,0.05); }
 ul.review-list li.cat-series a.row:hover { border-left-color: var(--c-series); background: rgba(106,156,147,0.06); }
 ul.review-list li.cat-libros a.row:hover { border-left-color: var(--c-libros); background: rgba(181,86,75,0.06); }
-ul.review-list li.cat-juegos a.row:hover { border-left-color: var(--c-juegos); background: rgba(140,154,90,0.06); }
+ul.review-list li.cat-juegos a.row:hover { border-left-color: var(--c-juegos); background: rgba(154,123,181,0.06); }
 
 .row .left { min-width: 0; flex: 1; }
 
@@ -428,7 +428,7 @@ article.review .body img {
 article.review.cine .react-btn.is-active { border-color: var(--c-cine); color: var(--c-cine); background-color: rgba(217,164,65,0.08); }
 article.review.series .react-btn.is-active { border-color: var(--c-series); color: var(--c-series); background-color: rgba(106,156,147,0.08); }
 article.review.libros .react-btn.is-active { border-color: var(--c-libros); color: var(--c-libros); background-color: rgba(181,86,75,0.08); }
-article.review.juegos .react-btn.is-active { border-color: var(--c-juegos); color: var(--c-juegos); background-color: rgba(140,154,90,0.08); }
+article.review.juegos .react-btn.is-active { border-color: var(--c-juegos); color: var(--c-juegos); background-color: rgba(154,123,181,0.08); }
 
 footer.site {
   border-top: 1px solid var(--rule);
