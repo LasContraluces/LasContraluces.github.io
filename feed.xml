@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Tammany Hall (2007)</title>
+    <link>https://lascontraluces.com/reviews/tammany-hall.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/tammany-hall.html</guid>
+    <category>Juegos</category>
+    <description>Sales alcalde y repartes los cuchillos</description>
+  </item>
+  <item>
     <title>Blade Runner 2049 (2017)</title>
     <link>https://lascontraluces.com/reviews/blade-runner-2049.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/blade-runner-2049.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/castle.html</guid>
     <category>Series</category>
     <description>Dos protagonistas con chispa y unos secundarios que se llevan media serie</description>
-  </item>
-  <item>
-    <title>Sandman (2022-2025)</title>
-    <link>https://lascontraluces.com/reviews/sandman.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/sandman.html</guid>
-    <category>Series</category>
-    <description>Un sueño, o una pesadilla</description>
   </item>
 </channel>
 </rss>
