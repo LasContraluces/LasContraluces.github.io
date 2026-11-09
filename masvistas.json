@@ -5,7 +5,7 @@
    "href": "reviews/the-furious.html",
    "name": "The Furious",
    "year": "(2025)",
-   "count": 33
+   "count": 36
   },
   {
    "cat": "cine",
@@ -68,7 +68,7 @@
   "reviews/the-running-man.html": 1,
   "reviews/superman.html": 0,
   "reviews/mision-imposible-the-final-reckoning.html": 0,
-  "reviews/the-furious.html": 33,
+  "reviews/the-furious.html": 36,
   "reviews/dia-de-entrenamiento.html": 0,
   "reviews/el-fuego-de-la-venganza.html": 0,
   "reviews/jurassic-world-rebirth.html": 0,
@@ -113,6 +113,7 @@
   "reviews/asalto-al-tren-del-dinero.html": 0,
   "reviews/wildwood-el-bosque-salvaje.html": 0,
   "reviews/blade-runner.html": 0,
-  "reviews/blade-runner-2049.html": 0
+  "reviews/blade-runner-2049.html": 0,
+  "reviews/tammany-hall.html": 0
  }
 }
