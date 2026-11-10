@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Orléans (2014)</title>
+    <link>https://lascontraluces.com/reviews/orleans.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/orleans.html</guid>
+    <category>Juegos</category>
+    <description>Si no sale el barquero, mira quién llenó la bolsa</description>
+  </item>
+  <item>
     <title>Tammany Hall (2007)</title>
     <link>https://lascontraluces.com/reviews/tammany-hall.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/tammany-hall.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/la-lista-final.html</guid>
     <category>Series</category>
     <description>Chris Pratt deja los chistes en casa</description>
-  </item>
-  <item>
-    <title>Castle (2009-2016)</title>
-    <link>https://lascontraluces.com/reviews/castle.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/castle.html</guid>
-    <category>Series</category>
-    <description>Dos protagonistas con chispa y unos secundarios que se llevan media serie</description>
   </item>
 </channel>
 </rss>
