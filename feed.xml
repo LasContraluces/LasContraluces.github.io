@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Hope (2026)</title>
+    <link>https://lascontraluces.com/reviews/hope.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/hope.html</guid>
+    <category>Cine</category>
+    <description>Dos horas y media persiguiendo a algo que no deja de correr</description>
+  </item>
+  <item>
     <title>Orléans (2014)</title>
     <link>https://lascontraluces.com/reviews/orleans.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/orleans.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/the-corruptor.html</guid>
     <category>Cine</category>
     <description>Chow Yun-fat vino a Chinatown para repartir plomo</description>
-  </item>
-  <item>
-    <title>La lista final — T1 (2022)</title>
-    <link>https://lascontraluces.com/reviews/la-lista-final.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/la-lista-final.html</guid>
-    <category>Series</category>
-    <description>Chris Pratt deja los chistes en casa</description>
   </item>
 </channel>
 </rss>
