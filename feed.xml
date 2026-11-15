@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Age of Steam (2002)</title>
+    <link>https://lascontraluces.com/reviews/age-of-steam.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/age-of-steam.html</guid>
+    <category>Juegos</category>
+    <description>Esto no va de trenes bonitos</description>
+  </item>
+  <item>
     <title>London (2010)</title>
     <link>https://lascontraluces.com/reviews/london.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/london.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/camp-miasma.html</guid>
     <category>Cine</category>
     <description>Cuando el slasher se convierte en una fumada demasiado larga</description>
-  </item>
-  <item>
-    <title>Bosch: Legacy (2022-2025)</title>
-    <link>https://lascontraluces.com/reviews/bosch-legacy.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/bosch-legacy.html</guid>
-    <category>Series</category>
-    <description>Diez temporadas después, Harry se despide sin que nadie estuviera preparado para decir adiós</description>
   </item>
 </channel>
 </rss>
