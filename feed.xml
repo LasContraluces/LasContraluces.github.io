@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>London (2010)</title>
+    <link>https://lascontraluces.com/reviews/london.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/london.html</guid>
+    <category>Juegos</category>
+    <description>Construye lo que quieras, que Londres ya te pasará la factura</description>
+  </item>
+  <item>
     <title>Coyote vs. Acme (2026)</title>
     <link>https://lascontraluces.com/reviews/coyote-vs-acme.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/coyote-vs-acme.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/bosch-legacy.html</guid>
     <category>Series</category>
     <description>Diez temporadas después, Harry se despide sin que nadie estuviera preparado para decir adiós</description>
-  </item>
-  <item>
-    <title>Ballard — T1 (2025)</title>
-    <link>https://lascontraluces.com/reviews/ballard.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/ballard.html</guid>
-    <category>Series</category>
-    <description>Casos sin resolver y una detective que viene a quedarse</description>
   </item>
 </channel>
 </rss>
