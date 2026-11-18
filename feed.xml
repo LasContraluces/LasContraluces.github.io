@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Aniquilación (2026)</title>
+    <link>https://lascontraluces.com/reviews/aniquilacion.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/aniquilacion.html</guid>
+    <category>Cine</category>
+    <description>Una vuelta al cine de género que no termina de funcionar</description>
+  </item>
+  <item>
     <title>Age of Steam (2002)</title>
     <link>https://lascontraluces.com/reviews/age-of-steam.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/age-of-steam.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/los-demonios-de-la-noche.html</guid>
     <category>Cine</category>
     <description>Una vieja película de aventuras que sigue funcionando</description>
-  </item>
-  <item>
-    <title>Teenage Sex and Death at Camp Miasma (2026)</title>
-    <link>https://lascontraluces.com/reviews/camp-miasma.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/camp-miasma.html</guid>
-    <category>Cine</category>
-    <description>Cuando el slasher se convierte en una fumada demasiado larga</description>
   </item>
 </channel>
 </rss>
