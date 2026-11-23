@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Lancaster (2011)</title>
+    <link>https://lascontraluces.com/reviews/lancaster.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/lancaster.html</guid>
+    <category>Juegos</category>
+    <description>Si te quitan el sitio, vuelves con alguien más grande</description>
+  </item>
+  <item>
     <title>Tombstone (1993)</title>
     <link>https://lascontraluces.com/reviews/tombstone.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/tombstone.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/the-gentlemen-t2.html</guid>
     <category>Series</category>
     <description>Cuando Guy Ritchie decide quitar el freno</description>
-  </item>
-  <item>
-    <title>Waterworld: The Ulysses Cut (1995)</title>
-    <link>https://lascontraluces.com/reviews/waterworld.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/waterworld.html</guid>
-    <category>Cine</category>
-    <description>Mad Max sobre el agua, ahora con 45 minutos más</description>
   </item>
 </channel>
 </rss>
