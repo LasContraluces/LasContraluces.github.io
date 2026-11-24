@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Los juegos del hambre: En llamas (2013)</title>
+    <link>https://lascontraluces.com/reviews/los-juegos-del-hambre-en-llamas.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/los-juegos-del-hambre-en-llamas.html</guid>
+    <category>Cine</category>
+    <description>Una nueva vuelta a la arena con más cosas en juego</description>
+  </item>
+  <item>
     <title>Los juegos del hambre (2012)</title>
     <link>https://lascontraluces.com/reviews/los-juegos-del-hambre.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/los-juegos-del-hambre.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/un-profeta.html</guid>
     <category>Cine</category>
     <description>La cárcel como escuela de criminales</description>
-  </item>
-  <item>
-    <title>Un hombre lobo americano en Londres (1981)</title>
-    <link>https://lascontraluces.com/reviews/un-hombre-lobo-americano-en-londres.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/un-hombre-lobo-americano-en-londres.html</guid>
-    <category>Cine</category>
-    <description>La transformación sigue siendo lo mejor, y han pasado más de cuarenta años</description>
   </item>
 </channel>
 </rss>
