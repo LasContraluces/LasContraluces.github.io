@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Motor City (2025)</title>
+    <link>https://lascontraluces.com/reviews/motor-city.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/motor-city.html</guid>
+    <category>Cine</category>
+    <description>Una película de acción que prefiere callarse</description>
+  </item>
+  <item>
     <title>Lancaster (2011)</title>
     <link>https://lascontraluces.com/reviews/lancaster.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/lancaster.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/lanterns-t1.html</guid>
     <category>Series</category>
     <description>Don’t be afraid to be afraid de ser un Linterna Verde</description>
-  </item>
-  <item>
-    <title>The Gentlemen — T2 (2026)</title>
-    <link>https://lascontraluces.com/reviews/the-gentlemen-t2.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/the-gentlemen-t2.html</guid>
-    <category>Series</category>
-    <description>Cuando Guy Ritchie decide quitar el freno</description>
   </item>
 </channel>
 </rss>
