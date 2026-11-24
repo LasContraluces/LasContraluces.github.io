@@ -7,6 +7,13 @@
   <language>es</language>
   <atom:link href="https://lascontraluces.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Los juegos del hambre (2012)</title>
+    <link>https://lascontraluces.com/reviews/los-juegos-del-hambre.html</link>
+    <guid isPermaLink="true">https://lascontraluces.com/reviews/los-juegos-del-hambre.html</guid>
+    <category>Cine</category>
+    <description>La primera visita a Panem sigue siendo la mejor</description>
+  </item>
+  <item>
     <title>Motor City (2025)</title>
     <link>https://lascontraluces.com/reviews/motor-city.html</link>
     <guid isPermaLink="true">https://lascontraluces.com/reviews/motor-city.html</guid>
@@ -208,13 +215,6 @@
     <guid isPermaLink="true">https://lascontraluces.com/reviews/un-hombre-lobo-americano-en-londres.html</guid>
     <category>Cine</category>
     <description>La transformación sigue siendo lo mejor, y han pasado más de cuarenta años</description>
-  </item>
-  <item>
-    <title>Lanterns — T1 (2026)</title>
-    <link>https://lascontraluces.com/reviews/lanterns-t1.html</link>
-    <guid isPermaLink="true">https://lascontraluces.com/reviews/lanterns-t1.html</guid>
-    <category>Series</category>
-    <description>Don’t be afraid to be afraid de ser un Linterna Verde</description>
   </item>
 </channel>
 </rss>
